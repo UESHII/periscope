@@ -1,6 +1,6 @@
 # README
 ---
-## users テーブル
+## users Table
 
 | Column   | Type   | Options     |
 | -------- | ------ | ----------- |
@@ -8,7 +8,13 @@
 | email    | string | null: false |
 | password | string | null: false |
 
-## profile テーブル
+### Association
+* has_one :profile
+* has_many :evaluations
+* has_many :progresses
+* has_many :reviews
+---
+## profile Table
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
@@ -16,7 +22,11 @@
 | user    | references | null: false, foreign_key: true |
 | team_id | integer    | null: false                    |
 
-## evaluation テーブル
+### Association
+* belongs_to :user
+* belongs_to_active_hash :team
+---
+## evaluation Table
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
@@ -24,7 +34,12 @@
 | room   | text       | null: false                    |
 | user   | references | null: false, foreign_key: true |
 
-## review テーブル
+### Association
+* belongs_to :user
+* has_many :progresses
+* has_many :reviews
+---
+## review Table
 
 | Column     | Type       | Options                        |
 | ---------- | ---------- | ------------------------------ |
@@ -33,10 +48,20 @@
 | user       | references | null: false, foreign_key: true |
 | evaluation | references | null: false, foreign_key: true |
 
-## progress テーブル
+### Association
+* belongs_to :evaluation
+* belongs_to :user
+
+---
+## progress Table
 
 | Column      | Type       | Options                        |
 | ----------- | ---------- | ------------------------------ |
 | description | text       | null: false                    |
 | user        | references | null: false, foreign_key: true |
 | evaluation  | references | null: false, foreign_key: true |
+
+### Association
+* belongs_to :progress
+* belongs_to :evaluation
+---
