@@ -1,24 +1,42 @@
 # README
+---
+## users テーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+| Column   | Type   | Options     |
+| -------- | ------ | ----------- |
+| name     | string | null: false |
+| email    | string | null: false |
+| password | string | null: false |
 
-Things you may want to cover:
+## profile テーブル
 
-* Ruby version
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| contact | string     | null: false                    |
+| user    | references | null: false, foreign_key: true |
+| team_id | integer    | null: false                    |
 
-* System dependencies
+## evaluation テーブル
 
-* Configuration
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| goal   | text       | null: false                    |
+| room   | text       | null: false                    |
+| user   | references | null: false, foreign_key: true |
 
-* Database creation
+## review テーブル
 
-* Database initialization
+| Column     | Type       | Options                        |
+| ---------- | ---------- | ------------------------------ |
+| clear      | text       | null: false                    |
+| dark       | text       | null: false                    |
+| user       | references | null: false, foreign_key: true |
+| evaluation | references | null: false, foreign_key: true |
 
-* How to run the test suite
+## progress テーブル
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| description | text       | null: false                    |
+| user        | references | null: false, foreign_key: true |
+| evaluation  | references | null: false, foreign_key: true |
