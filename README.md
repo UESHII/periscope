@@ -31,7 +31,7 @@
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
 | goal   | text       | null: false                    |
-| room   | text       | null: false                    |
+| result | text       | null: false                    |
 | user   | references | null: false, foreign_key: true |
 
 ### Association
