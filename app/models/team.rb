@@ -1,4 +1,4 @@
-class Team < ApplicationRecord
+class Team < ActiveHash::Base
   self.data = [
     { id: 1, name: 'Acconting' },
     { id: 2, name: 'Customer Service' },
