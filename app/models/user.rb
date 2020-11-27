@@ -17,3 +17,4 @@ class User < ApplicationRecord
     validates :email
     validates :password, format: { with: PASSWORD_REGEX, message: "is invalid. Input 6 characters at least, use both of letter and number."}
   end
+end
