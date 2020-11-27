@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get 'profiles/index'
-  get 'profiles/new'
-  get 'profiles/edit'
+  root to: "profiles#new"
   devise_for :users
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :profiles, only: [:index, :new, :edit]
 end

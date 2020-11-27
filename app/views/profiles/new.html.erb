@@ -1,2 +1,16 @@
 <h1>Profiles#new</h1>
 <p>Find me in app/views/profiles/new.html.erb</p>
+
+<div class='profiles-sell-main'>
+  <h2 class='profile-sell-input'>プロフィールを作成しましょう</h2>
+  <%= form_with model: @profilem, method: :post, local: true do |f| %>
+    <div class='new-profile'>
+      <p>Input your contact informations</p>
+      <%= f.text_area :name, class:"profiles-text", id:"profiles-contact", placeholder:"TEL: 000-0000-0000, E-mail: example@example.com" %>
+
+      <p>Select your team</p>
+      <%= f.collection_select(:team_id, Team.all, :id, :name, {include_blank: "---"}, {class:"select-box", id:"profile-team"}) %>
+
+      <%= f.submit "Submit" ,class:"sell-btn" %>
+    </div>
+  <% end %>
