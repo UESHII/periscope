@@ -9,11 +9,11 @@ class User < ApplicationRecord
   has_many :progresses
   has_many :reviews
 
-  NAME_REGEX = /\A[ぁ-んァ-ン一-龥]+\z/
+  NAME_REGEX = /\A[a-zA-Zぁ-んァ-ン一-龥\s]+\z/
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
   
   with_options presence: true do
-    validates :name, format: { with: NAME_REGEX, message: "is invalid. Input full-width characters."}
+    validates :name, format: { with: NAME_REGEX, message: "is invalid."}
     validates :email
     validates :password, format: { with: PASSWORD_REGEX, message: "is invalid. Input 6 characters at least, use both of letter and number."}
   end
