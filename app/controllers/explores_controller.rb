@@ -1,6 +1,6 @@
 class ExploresController < ApplicationController
   def index
-    @user = User.all
-    @profile = Profile.all
+    @users = User.all
+    @profiles = Profile.all
   end
 end
