@@ -1,2 +1,18 @@
-<h1>Profiles#index</h1>
-<p>Find me in app/views/profiles/index.html.erb</p>
+<header class='top-page-header'>
+  <div class="nav">
+    <ul class="list-right">
+      <% if user_signed_in? %>
+        <li><%= link_to current_user.name, "#", class: "user-name" %></li>
+        <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "logout" %></li>
+      <% else %>
+        <li><%= link_to "Log in", new_user_session_path, class: "login" %></li>
+        <li><%= link_to "Sign up", new_user_registration_path, class: "sign-up" %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="link-list">
+    <ul class="list-left">
+      <%# ここにリンクのリストを作成する %>
+    </ul>
+  </div>
+</header>
