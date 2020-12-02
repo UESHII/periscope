@@ -30,7 +30,7 @@
         <li>NAME:<%= current_user.name %></li>
         <li>TEAM:<%= current_user.profile.team.name %></li>
         <li>CONTACT INFORMATION:<%= current_user.profile.contact %>
-        <li><%= link_to "Edit your profile details", edit_profile_path(current_user.id), method: :get, class: "edit-profile"%></li>
+        <li><%= link_to "Edit your profile details", edit_profile_path(current_user.profile.id), method: :get, class: "edit-profile"%></li>
       </ul>
     </div>
   </div>
