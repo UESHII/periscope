@@ -66,5 +66,5 @@ group :production do
 end
 
 gem 'devise'
-
 gem 'active_hash'
+gem 'strong_password', '~> 0.0.8'
