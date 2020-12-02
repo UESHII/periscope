@@ -12,7 +12,7 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(profile_params)
     if @profile.save
-      redirect_to action: :new
+      redirect_to action: :index
     else
       render :new
     end
@@ -30,4 +30,5 @@ class ProfilesController < ApplicationController
   def profile_params
     params.require(:profile).permit(:contact, :team_id).merge(user_id: current_user.id)
   end
+
 end

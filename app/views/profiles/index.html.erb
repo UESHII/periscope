@@ -17,41 +17,41 @@
   </div>
 </header>
 
-<% if @profiles == current_user.id%>
-  <div class="main">
-    <div class="profile-details">
-      <div class="profile-details-left">
-        <ul>
-          <%# ここにアバター画像が表示されるようにする %>
-        </ul>
-      </div>
-      <div class="profile-details-right">
-        <ul>
-          <li>NAME:<%= current_user.name %></li>
-          <li>TEAM:<%= current_user.profile.team.name %></li>
-          <li>CONTACT INFORMATION:<%= current_user.profile.contact %>
-          <li><%= link_to "Edit your profile details", edit_profile_path(current_user.profile.id), method: :get, class: "edit-profile"%></li>
-        </ul>
-      </div>
+<% if current_user.profile %>
+<div class="main">
+  <div class="profile-details">
+    <div class="profile-details-left">
+      <ul>
+        <%# ここにアバター画像が表示されるようにする %>
+      </ul>
     </div>
-    <%# <div class="new-post"> %>
-      <%# <% if @evaluations.any? %> %>
-        <%# <%= @evaluations.each do |evaluation| %> %>
-          <%# <ul> %>
-            <%# ---------------------------------------------- %>
-            <%# User Name <%= evaluation.user.name %> %>
-            <%# Posted Date <%= evaluation.created_at %> %>
-            <%# Team <%= evaluation.user.profile.team.name %> %>
-            <%# ---------------------------------------------- %>
-          <%# </ul> %>
-        <%# <% end %> %>
-      <%# <% else %> %>
-        <%# Evaluations appear here after new evaluation posted. %>
-      <%# <% end %> %>
-    <%# </div> %>
-    <div class="new-update">
+    <div class="profile-details-right">
+      <ul>
+        <li>NAME:<%= current_user.name %></li>
+        <li>TEAM:<%= current_user.profile.team.name %></li>
+        <li>CONTACT INFORMATION:<%= current_user.profile.contact %>
+        <li><%= link_to "Edit your profile details", edit_profile_path(current_user.id), method: :get, class: "edit-profile"%></li>
+      </ul>
     </div>
   </div>
-<% else %>
-  Create your profile >>> <%= link_to "Create profile", new_profile_path %>
+  
+  <%# <div class="new-post"> %>
+    <%# <% if @evaluations.any? %> %>
+      <%# <%= @evaluations.each do |evaluation| %> %>
+        <%# <ul> %>
+          <%# ---------------------------------------------- %>
+          <%# User Name <%= evaluation.user.name %> %>
+          <%# Posted Date <%= evaluation.created_at %> %>
+          <%# Team <%= evaluation.user.profile.team.name %> %>
+          <%# ---------------------------------------------- %>
+        <%# </ul> %>
+      <%# <% end %> %>
+    <%# <% else %> %>
+      <%# Evaluations appear here after new evaluation posted. %>
+    <%# <% end %> %>
+  <%# </div> %>
+
+  <div class="new-update">
+  </div>
+</div>
 <% end %>
