@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
+  before_action :move_to_new, only: [:edit, :show, :update, :index]
   before_action :set_profile, only: [:edit, :show, :update]
 
   def index
@@ -41,5 +42,11 @@ class ProfilesController < ApplicationController
 
   def set_profile
     @profile = Profile.find(params[:id])
+  end
+
+  def move_to_new
+    unless current_user.profile
+      redirect_to action: :new
+    end
   end
 end

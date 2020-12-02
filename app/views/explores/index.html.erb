@@ -1,6 +1,26 @@
-<h1>Explore</h1>
-<p>Find users, profiles and evaluations.</p>
-
+<header class='top-page-header'>
+  <div class="nav">
+    <h1>Explore</h1>
+    <p>Find users, profiles and evaluations.</p>
+    <ul class="list-upper">
+      <% if user_signed_in? %>
+        <li><%= current_user.name %></li>
+        <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-info" %></li>
+      <% else %>
+        <%= render "devise/registrations/new" %>
+      <% end %>
+    </ul>
+  </div>
+  <div class="link-list">
+    <ul class="list-lower">
+      <%# ここにリンクのリストを作成する %>
+      <li><%= link_to "Top", root_path, class: "nav-list" %>
+      <li><%= link_to "User list", explores_path, class: "nav-list" %></li>
+      <li><%= link_to "Edit registration", edit_user_registration_path, class: "nav-list" %>
+      <li><%= link_to "Edit profile", edit_profile_path(current_user.profile.id), class: "nav-list"%>
+    </ul>
+  </div>
+</header>
 <div class="main">
   <% if @users.any? %>
     <% @users.each do |user| %>

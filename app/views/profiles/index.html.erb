@@ -2,7 +2,7 @@
   <div class="nav">
     <ul class="list-upper">
       <% if user_signed_in? %>
-        <li><%= link_to current_user.name, "#", class: "nav-info" %></li>
+        <li><%= current_user.name %></li>
         <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-info" %></li>
       <% else %>
         <%= render "devise/registrations/new" %>
@@ -12,6 +12,7 @@
   <div class="link-list">
     <ul class="list-lower">
       <%# ここにリンクのリストを作成する %>
+      <li><%= link_to "Top", root_path, class: "nav-list" %>
       <li><%= link_to "User list", explores_path, class: "nav-list" %></li>
       <li><%= link_to "Edit registration", edit_user_registration_path, class: "nav-list" %>
       <li><%= link_to "Edit profile", edit_profile_path(current_user.profile.id), class: "nav-list"%>
@@ -19,7 +20,6 @@
   </div>
 </header>
 
-<% if current_user.profile %>
 <div class="main">
   <div class="profile-details">
     <div class="profile-details-left">
@@ -56,4 +56,3 @@
   <div class="new-update">
   </div>
 </div>
-<% end %>
