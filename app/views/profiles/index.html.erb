@@ -13,6 +13,8 @@
     <ul class="list-lower">
       <%# ここにリンクのリストを作成する %>
       <li><%= link_to "User list", explores_path, class: "nav-list" %></li>
+      <li><%= link_to "Edit registration", edit_user_registration_path, class: "nav-list" %>
+      <li><%= link_to "Edit profile", edit_profile_path(current_user.profile.id), class: "nav-list"%>
     </ul>
   </div>
 </header>
