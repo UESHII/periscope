@@ -6,5 +6,6 @@ class Profile < ApplicationRecord
   with_options presence: true do
     validates :user
     validates :team
+    validates :contact
   end
 end
