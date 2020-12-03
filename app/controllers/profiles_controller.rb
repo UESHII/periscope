@@ -5,6 +5,7 @@ class ProfilesController < ApplicationController
 
   def index
     @profiles = Profile.all
+    @evaluations = Evaluation.all.order("created_at DESC")
   end
 
   def new
@@ -24,6 +25,7 @@ class ProfilesController < ApplicationController
   end
 
   def show
+    @evaluation = Evaluation.find(params[:id])
   end
 
   def update
