@@ -28,11 +28,12 @@
 ---
 ## evaluation Table
 
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| goal   | text       | null: false                    |
-| result | text       | null: false                    |
-| user   | references | null: false, foreign_key: true |
+| Column         | Type       | Options                        |
+| -------------- | ---------- | ------------------------------ |
+| goal           | text       | null: false                    |
+| result         | text       |                                |
+| fiscal_year_id | integer    | null: false                    |
+| user           | references | null: false, foreign_key: true |
 
 ### Association
 * belongs_to :user
