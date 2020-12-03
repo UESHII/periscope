@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root to: "profiles#index"
-  devise_for :users
-  resources :profiles, only: [:index, :new, :create, :edit, :show, :update]
+  devise_for :users, :controllers => { :registrations => 'users/registrations' }
+  resources :profiles, only: [:index, :new, :create, :edit, :show, :update, :destroy]
   resources :explores, only: [:index]
+  resources :evaluations
 end

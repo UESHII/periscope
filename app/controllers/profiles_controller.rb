@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
-  before_action :move_to_new, only: [:edit, :show, :update, :index]
-  before_action :set_profile, only: [:edit, :show, :update]
+  before_action :move_to_new, only: [:edit, :show, :index]
+  before_action :set_profile, only: [:edit, :show, :update, :destroy]
 
   def index
     @profiles = Profile.all
@@ -24,8 +24,10 @@ class ProfilesController < ApplicationController
   def edit
   end
 
+  def update
+  end
+
   def show
-    @evaluation = Evaluation.find(params[:id])
   end
 
   def update
@@ -34,6 +36,11 @@ class ProfilesController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @profile.destroy
+    redirect_to root_path, notice: '削除しました'
   end
 
   private

@@ -1,6 +1,11 @@
 class EvaluationsController < ApplicationController
   before_action :authenticate_user!
   before_action :move_to_new
+  before_action :set_evaluation only: [:edit, :update, :show, :destroy]
+
+  def index
+    @evaluations = Evaluation.all.order("created_at DESC")
+  end
 
   def new
     @evaluation = Evaluation.new
@@ -9,18 +14,25 @@ class EvaluationsController < ApplicationController
   def create
     @evaluation = Evaluation.new(evaluation_params)
     if @evaluation.save
-      redirect_to action: :index
+      redirect_to root_path
     else
       render :new
     end
   end
 
   def edit
-    @evaluation = Evaluation.find(params[:id])
   end
 
+  def update
+  end
+
+
   def show
-    @evaluation = Evaluation.find(params[:id])
+  end
+
+  def destroy
+    @evaluation.destroy
+    redirect_to root_path, notice: '削除しました'
   end
 
   private
@@ -33,5 +45,9 @@ class EvaluationsController < ApplicationController
 
   def evaluation_params
     params.require(:evaluation).permit(:goal, :result, :fiscal_year).merge(user_id: current_user.id)
+  end
+
+  def set_evaluation
+    @evaluation = Evaluation.find(params[:id])
   end
 end
