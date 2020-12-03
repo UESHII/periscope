@@ -1,10 +1,8 @@
-<%= render "shared/header" %>
-
 <header class='top-page-header'>
   <div class="nav">
     <ul class="list-upper">
       <% if user_signed_in? %>
-        <li><%= @profile.user.name %></li>
+        <li><%= current_user.name %></li>
         <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-info" %></li>
       <% else %>
         <%= render "devise/registrations/new" %>
@@ -12,29 +10,17 @@
     </ul>
   </div>
   <div class="link-list">
+    <hr>
+    <%# ここにリンクのリストを作成する %><%# ここにList Titleを挿入 %>
+    Link
+    <hr>
     <ul class="list-lower">
-      <%# ここにリンクのリストを作成する %>
       <li><%= link_to "Top", root_path, class: "nav-list" %>
       <li><%= link_to "User list", explores_path, class: "nav-list" %></li>
+      <li><%= link_to "Post - Evaluation", new_evaluation_path, class: "nav-list" %></li>
       <li><%= link_to "Edit registration", edit_user_registration_path, class: "nav-list" %>
       <li><%= link_to "Edit profile", edit_profile_path(current_user.profile.id), class: "nav-list"%>
     </ul>
+    <hr>
   </div>
 </header>
-
-<div class="main">
-  <div class="profile-details">
-    <div class="profile-details-left">
-      <ul>
-        <%# ここにアバター画像が表示されるようにする %>
-      </ul>
-    </div>
-    <div class="profile-details-right">
-      <ul>
-        <li>NAME:<%= @profile.user.name %></li>
-        <li>TEAM:<%= @profile.team.name %></li>
-        <li>CONTACT INFORMATION:<%= @profile.contact %>
-      </ul>
-    </div>
-  </div>
-</div>
