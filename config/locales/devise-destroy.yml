@@ -2,3 +2,8 @@ en:
   devise:  
     failure:  
       deleted_account: "You've deleted your account. Thanks!"
+
+jp:
+  devise:
+    failure:
+      deleted_account: "削除済みのアカウントです"
