@@ -1,0 +1,25 @@
+<div class="evaluation-list">
+  <%# ここにList Titleを挿入 %>
+  Evaluation Lists
+  <hr>
+  <% if @evaluations.any? %>
+    <% @evaluations.each do |evaluation| %>
+      <% if evaluation.user.id != current_user.id %>
+      <div class="new-post">
+        <ul>
+          <%= evaluation.id %> : <%= evaluation.created_at %>
+          <li>User Name <%= link_to evaluation.user.name, profile_path(evaluation.user.profile.id) %></li>
+          <li>Team <%= evaluation.user.profile.team.name %></li>
+          <li>Evaluation <%= evaluation.goal %></li>
+        </ul>
+      </div>
+      <% end %>
+    <% end %>
+  <% else %>
+    Evaluations appear here after new evaluation posted.
+  <% end %>
+  <hr>
+
+  <div class="new-update">
+  </div>
+</div>

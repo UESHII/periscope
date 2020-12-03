@@ -10,17 +10,25 @@
     </ul>
   </div>
   <div class="link-list">
+    <hr>
+    <%# ここにリンクのリストを作成する %><%# ここにList Titleを挿入 %>
+    Link
+    <hr>
     <ul class="list-lower">
-      <%# ここにリンクのリストを作成する %>
       <li><%= link_to "Top", root_path, class: "nav-list" %>
       <li><%= link_to "User list", explores_path, class: "nav-list" %></li>
+      <li><%= link_to "Post - Evaluation", new_evaluation_path, class: "nav-list" %></li>
       <li><%= link_to "Edit registration", edit_user_registration_path, class: "nav-list" %>
       <li><%= link_to "Edit profile", edit_profile_path(current_user.profile.id), class: "nav-list"%>
     </ul>
+    <hr>
   </div>
 </header>
 
 <div class="main">
+  <%# ここにList Titleを挿入 %>
+  Your profile
+  <hr>
   <div class="profile-details">
     <div class="profile-details-left">
       <ul>
@@ -36,23 +44,8 @@
       </ul>
     </div>
   </div>
-  
-  <%# <div class="new-post"> %>
-    <%# <% if @evaluations.any? %> %>
-      <%# <%= @evaluations.each do |evaluation| %> %>
-        <%# <ul> %>
-          <%# ---------------------------------------------- %>
-          <%# User Name <%= evaluation.user.name %> %>
-          <%# Posted Date <%= evaluation.created_at %> %>
-          <%# Team <%= evaluation.user.profile.team.name %> %>
-          <%# ---------------------------------------------- %>
-        <%# </ul> %>
-      <%# <% end %> %>
-    <%# <% else %> %>
-      <%# Evaluations appear here after new evaluation posted. %>
-    <%# <% end %> %>
-  <%# </div> %>
-
-  <div class="new-update">
-  </div>
+  <hr>
 </div>
+
+<%= render template: "evaluations/index" %>
+

@@ -1,0 +1,18 @@
+<div class='profiles-sell-main'>
+  <h2 class='profile-sell-input'>Post your evaluation</h2>
+
+  <%= form_with model: @evaluation, method: :post, local: true do |f| %>
+    <div class='new-evaluation'>
+      <p>Select fiscal year for this evaluation</p>
+      <p>Example: 【Year】=> 2020 /【Quarter】Q1 => 3, Q2 => 6, Q3 => 9, Q4 => 12</p>
+      <%= f.date_select :fiscal_year, {:discard_day => true, :use_month_numbers => true} %>
+      <p>Input your goals at next year</p>
+      <%= f.text_area :goal, class:"evaluation-text", id:"evaluation-goal", placeholder:"Goal 1:\nGoal 2:..." %>
+      <p>--------------------------------------------------</p>
+      <p>Input your result at last year</p>
+      <%= f.text_area :result, class:"evaluation-text", id:"evaluation-result", placeholder:"Result for 1:\nResult for 2:..." %>
+      
+      <p><%= f.submit "Submit" ,class:"sell-btn" %></p>
+    </div>
+  <% end %>
+</div>
