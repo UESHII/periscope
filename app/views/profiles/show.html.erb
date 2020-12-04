@@ -1,29 +1,11 @@
 <%= render "shared/header" %>
 
-<header class='top-page-header'>
-  <div class="nav">
-    <ul class="list-upper">
-      <% if user_signed_in? %>
-        <li><%= @profile.user.name %></li>
-        <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-info" %></li>
-      <% else %>
-        <%= render "devise/registrations/new" %>
-      <% end %>
-    </ul>
-  </div>
-  <div class="link-list">
-    <ul class="list-lower">
-      <%# ここにリンクのリストを作成する %>
-      <li><%= link_to "Top", root_path, class: "nav-list" %>
-      <li><%= link_to "User list", explores_path, class: "nav-list" %></li>
-      <li><%= link_to "Edit registration", edit_user_registration_path, class: "nav-list" %>
-      <li><%= link_to "Edit profile", edit_profile_path(current_user.profile.id), class: "nav-list"%>
-    </ul>
-  </div>
-</header>
-
 <div class="main">
   <div class="profile-details">
+    <% if @profile.user.id == current_user.id %>
+    Your profile
+    <hr>
+    <% end %>
     <div class="profile-details-left">
       <ul>
         <%# ここにアバター画像が表示されるようにする %>
@@ -34,7 +16,39 @@
         <li>NAME:<%= @profile.user.name %></li>
         <li>TEAM:<%= @profile.team.name %></li>
         <li>CONTACT INFORMATION:<%= @profile.contact %>
+        <% if @profile.user.id == current_user.id %>
+          <li><%= link_to "Edit your profile details", edit_profile_path(current_user.profile.id), method: :get, class: "edit-profile"%></li>
+        <% end %>
       </ul>
     </div>
+  </div>
+  <hr>
+</div>
+
+<div class="evaluation-list">
+  <%# ここにList Titleを挿入 %>
+  Evaluation Lists
+  <hr>
+  <div class="new-post">
+    <% if @evaluations.any? %>
+      <% @evaluations.each do |evaluation| %>
+        <ul>
+          <%= evaluation.id %> : <%= evaluation.fiscal_year.year %>年<%= evaluation.fiscal_year.month %>月
+          <%= link_to "Edit", edit_evaluation_path(evaluation.id) %>
+          <li>Goal <%= evaluation.goal %></li>
+          <% if evaluation.result %>
+          <li>Result <%= evaluation.result %></li>
+          <% else %>
+          Result haven't posted yet.
+          <% end %>
+        </ul>
+      <% end %>
+    <% else %>
+      Evaluations appear here after new evaluation posted.
+    <% end %>
+  </div>
+  <hr>
+
+  <div class="new-update">
   </div>
 </div>

@@ -4,7 +4,7 @@ class EvaluationsController < ApplicationController
   before_action :set_evaluation, only: [:edit, :update, :show, :destroy]
 
   def index
-    @evaluations = Evaluation.all.order("created_at DESC")
+    @evaluations = Evaluation.includes(:user).order("created_at DESC")
   end
 
   def new

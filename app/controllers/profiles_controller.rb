@@ -4,8 +4,7 @@ class ProfilesController < ApplicationController
   before_action :set_profile, only: [:edit, :show, :update, :destroy]
 
   def index
-    @profiles = Profile.all
-    @evaluations = Evaluation.all.order("created_at DESC")
+    @evaluations = Evaluation.includes(:user).order("created_at DESC")
   end
 
   def new
@@ -28,6 +27,7 @@ class ProfilesController < ApplicationController
   end
 
   def show
+    @evaluations = Evaluation.where(user_id: @profile.user.id).order("fiscal_year DESC")
   end
 
   def update
