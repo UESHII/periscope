@@ -1,7 +1,7 @@
 class Evaluation < ApplicationRecord
-  belongs_to :user, dependent: :destroy
-  has_many :progresses, dependent: :destroy
-  has_many :reviews, dependent: :destroy
+  belongs_to :user
+  has_many :progresses
+  has_many :reviews
 
   with_options presence: true do
     validates :goal

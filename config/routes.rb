@@ -3,5 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :registrations => 'users/registrations' }
   resources :profiles, only: [:index, :new, :create, :edit, :show, :update, :destroy]
   resources :explores, only: [:index]
-  resources :evaluations
+  resources :evaluations do
+    resources :reviews, only: [:new, :create]
+  end
 end
