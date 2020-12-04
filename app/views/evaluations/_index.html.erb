@@ -8,6 +8,7 @@
       <div class="new-post">
         <ul>
           <%= evaluation.id %> : <%= evaluation.created_at %>
+          <li>Fiscal Year <%= evaluation.fiscal_year.year %>/<%= evaluation.fiscal_year.month %>
           <li>User Name <%= link_to evaluation.user.name, profile_path(evaluation.user.profile.id) %></li>
           <li>Team <%= evaluation.user.profile.team.name %></li>
           <li>Evaluation <%= evaluation.goal %></li>

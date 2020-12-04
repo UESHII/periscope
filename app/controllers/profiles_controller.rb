@@ -2,6 +2,7 @@ class ProfilesController < ApplicationController
   before_action :authenticate_user!
   before_action :move_to_new, only: [:edit, :show, :index]
   before_action :set_profile, only: [:edit, :show, :update, :destroy]
+  before_action :edit_restriction, only: [:edit, :update]
 
   def index
     @evaluations = Evaluation.includes(:user).order("created_at DESC")
@@ -23,9 +24,6 @@ class ProfilesController < ApplicationController
   def edit
   end
 
-  def update
-  end
-
   def show
     @evaluations = Evaluation.where(user_id: @profile.user.id).order("fiscal_year DESC")
   end
@@ -36,11 +34,6 @@ class ProfilesController < ApplicationController
     else
       render :edit
     end
-  end
-
-  def destroy
-    @profile.destroy
-    redirect_to root_path, notice: '削除しました'
   end
 
   private
@@ -56,6 +49,12 @@ class ProfilesController < ApplicationController
   def move_to_new
     unless current_user.profile
       redirect_to action: :new
+    end
+  end
+
+  def edit_restriction
+    unless current_user.id == @profile.user.id
+      redirect_to root_path
     end
   end
 end

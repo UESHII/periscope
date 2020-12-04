@@ -2,6 +2,7 @@ class EvaluationsController < ApplicationController
   before_action :authenticate_user!
   before_action :move_to_new
   before_action :set_evaluation, only: [:edit, :update, :show, :destroy]
+  before_action :edit_restriction, only: [:edit, :update]
 
   def index
     @evaluations = Evaluation.includes(:user).order("created_at DESC")
@@ -29,11 +30,6 @@ class EvaluationsController < ApplicationController
   def show
   end
 
-  def destroy
-    @evaluation.destroy
-    redirect_to root_path, notice: '削除しました'
-  end
-
   private
 
   def move_to_new
@@ -49,4 +45,11 @@ class EvaluationsController < ApplicationController
   def set_evaluation
     @evaluation = Evaluation.find(params[:id])
   end
+
+  def edit_restriction
+    unless current_user.id == @evaluation.user.id
+      redirect_to root_path
+    end
+  end
+
 end
