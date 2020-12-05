@@ -11,6 +11,13 @@
             <%= evaluation.id %> : <%= evaluation.updated_at %>
             <%= link_to "Details", evaluation_path(evaluation.id) %>
             <ul>
+              <li>
+              <% if evaluation.user.profile.avatar.attached? %>
+                <%= image_tag evaluation.user.profile.avatar.variant(resize: "100x100"), class:"avatar"%>
+              <% else %>
+                <%= image_tag ("noimage.png"),class:"avatar" %>
+              <% end %>
+              </li>
               <li>Fiscal Year <%= evaluation.fiscal_year.year %>/<%= evaluation.fiscal_year.month %>
               <li>User Name <%= link_to evaluation.user.name, profile_path(evaluation.user.profile.id) %></li>
               <li>Team <%= evaluation.user.profile.team.name %></li>

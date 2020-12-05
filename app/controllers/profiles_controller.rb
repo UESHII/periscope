@@ -10,6 +10,7 @@ class ProfilesController < ApplicationController
 
   def new
     @profile = Profile.new
+    @teams = Team.all
   end
 
   def create
@@ -22,6 +23,7 @@ class ProfilesController < ApplicationController
   end
 
   def edit
+    @teams = Team.all
   end
 
   def show
@@ -39,7 +41,7 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.require(:profile).permit(:contact, :team_id, :joining_date).merge(user_id: current_user.id)
+    params.require(:profile).permit(:avatar, :contact, :team_id, :joining_date).merge(user_id: current_user.id)
   end
 
   def set_profile

@@ -7,6 +7,11 @@
   <% if @users.any? %>
     <% @users.each do |user| %>
       <% if user.profile && user != current_user%>
+        <% if user.profile.avatar.attached? %>
+          <%= image_tag user.profile.avatar.variant(resize: "100x100"), class:"avatar"%>
+        <% else %>
+          <%= image_tag ("noimage.png"),class:"avatar" %>
+        <% end %>
         <li>
           <%= link_to user.name, profile_path(user.profile.id) %>
           <span>TEAM :</span>

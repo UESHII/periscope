@@ -2,11 +2,17 @@
   <div class="nav">
     <ul class="list-upper">
       <% if user_signed_in? %>
+        <% if current_user.profile.avatar.attached? %>
+          <%= image_tag current_user.profile.avatar.variant(resize: "100x100"), class:"avatar"%>
+        <% else %>
+          <%= image_tag ("noimage.png"),class:"avatar" %>
+        <% end %>
         <li><%= link_to current_user.name, profile_path(current_user.profile.id) %></li>
         <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-info" %></li>
       <% else %>
         <%= render "devise/registrations/new" %>
       <% end %>
+      
     </ul>
   </div>
   <div class="link-list">
