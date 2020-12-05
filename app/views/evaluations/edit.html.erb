@@ -3,7 +3,7 @@
 <div class='profiles-sell-main'>
   <h2 class='profile-sell-input'>Post your evaluation</h2>
 
-  <%= form_with model: @evaluation, method: :post, local: true do |f| %>
+  <%= form_with model: @evaluation, method: :patch, local: true do |f| %>
     <div class='new-evaluation'>
       <p>Select fiscal year for this evaluation</p>
       <%= f.date_select :fiscal_year, {:discard_day => true, :use_month_numbers => true} %>

@@ -7,5 +7,6 @@ class Profile < ApplicationRecord
     validates :user
     validates :team
     validates :contact
+    validates :joining_year
   end
 end

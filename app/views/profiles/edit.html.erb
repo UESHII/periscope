@@ -11,6 +11,8 @@
       <p>Select your team</p>
       <%= f.collection_select(:team_id, Team.all, :id, :name, {include_blank: "---"}, {class:"select-box", id:"profile-team"}) %>
 
+      <p>Select your joining year</p>
+      <%= f.date_select :joining_year, {:discard_day => true, :use_month_numbers => true} %>
       <%= f.submit "Submit" ,class:"sell-btn" %>
     </div>
   <% end %>

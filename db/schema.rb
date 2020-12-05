@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2020_12_04_012321) do
     t.string "contact", null: false
     t.bigint "user_id", null: false
     t.integer "team_id", null: false
+    t.date "joining_year", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_profiles_on_user_id"

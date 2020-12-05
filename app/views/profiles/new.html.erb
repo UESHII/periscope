@@ -5,10 +5,10 @@
     <div class='new-profile'>
       <p>Input your contact informations</p>
       <%= f.text_area :contact, class:"profiles-text", id:"profiles-contact", placeholder:"TEL: 000-0000-0000, E-mail: example@example.com" %>
-
       <p>Select your team</p>
       <%= f.collection_select(:team_id, Team.all, :id, :name, {include_blank: "---"}, {class:"select-box", id:"profile-team"}) %>
-
+      <p>Select your joining year</p>
+      <%= f.date_select :joining_year, {:discard_day => true, :use_month_numbers => true} %>
       <%= f.submit "Submit" ,class:"sell-btn" %>
     </div>
   <% end %>

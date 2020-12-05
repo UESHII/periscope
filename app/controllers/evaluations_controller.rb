@@ -24,6 +24,11 @@ class EvaluationsController < ApplicationController
   end
 
   def update
+    if @evaluation.update(evaluation_params)
+      redirect_to action: :show
+    else
+      render :edit
+    end
   end
 
   def show
