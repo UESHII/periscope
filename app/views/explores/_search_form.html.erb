@@ -1,0 +1,13 @@
+<h1>
+Search users
+</h1>
+<%= search_form_for @u, url: explores_search_path do |f| %>
+  <p><%= f.label :name_cont, 'Name' %></p>
+  <%= f.text_field :name_cont %>
+  <p><%= f.label :profile_team_id_eq, 'Team'%></p>
+  <%= f.collection_select :profile_team_id_eq, @teams, :id, :name, :include_blank => '---' %>
+
+
+  <%= f.submit %>
+<% end %>
+</div>

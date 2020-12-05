@@ -8,4 +8,10 @@ class Team < ActiveHash::Base
     { id: 6, name: 'Manufacturing' },
     { id: 7, name: 'Sales' }
   ]
+
+  private
+
+  def self.ransackable_attributes(auth_object = nil)
+    %w(name)
+  end
 end

@@ -1,6 +1,9 @@
 <%= render "shared/header" %>
 
+<%= render "search_form"%>
+
 <div class="main">
+
   <% if @users.any? %>
     <% @users.each do |user| %>
       <% if user.profile && user != current_user%>

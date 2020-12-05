@@ -1,0 +1,5 @@
+<% @results.each do |result| %>
+  <p>NAME:<%= link_to result.name, profile_path(result.profile.id) %></p>
+  <p>TEAM:<%= result.profile.team.name %></p>
+  <p>CONTACT:<%= result.profile.contact %></p>
+<% end %>
