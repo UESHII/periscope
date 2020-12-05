@@ -22,7 +22,7 @@ class User < ApplicationRecord
     errors.add :password, 'Input 6 characters at least, use both of letter and number.'
   end
 
-  # instead of deleting, indicate the user requested a delete & timestamp it  
+  # instead of deleting, indicate the user requested a delete & timestamp it
   def soft_delete  
     update_attribute(:deleted_at, Time.current)  
   end  

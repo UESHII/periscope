@@ -1,5 +1,4 @@
 class ExploresController < ApplicationController
-  before_action :authenticate_user!
   before_action :move_to_new
 
   def index
