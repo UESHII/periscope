@@ -5,7 +5,6 @@ class EvaluationsController < ApplicationController
   before_action :edit_restriction, only: [:edit, :update]
 
   def index
-    @evaluations = Evaluation.includes(:user).order("created_at DESC")
   end
 
   def new
@@ -28,6 +27,8 @@ class EvaluationsController < ApplicationController
   end
 
   def show
+    @review = Review.new
+    @reviews = @evaluation.reviews.includes(:user)
   end
 
   private

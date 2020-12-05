@@ -1,0 +1,61 @@
+<%= render "shared/header" %>
+
+<div class="evaluation-list">
+  <%# ここにList Titleを挿入 %>
+  Details
+  <hr>
+  <div class="new-post">
+    <ul>
+      <%= @evaluation.id %> : <%= @evaluation.created_at %>
+      <%if @evaluation.user.id == current_user.id %>
+        <%= link_to "Edit", edit_evaluation_path(@evaluation.id) %>
+      <% end %>
+      <li>User Name <%= link_to @evaluation.user.name, profile_path(@evaluation.user.profile.id) %></li>
+      <li>Team <%= @evaluation.user.profile.team.name %></li>
+      <li>Fiscal Year <%= @evaluation.fiscal_year.year %>/<%= @evaluation.fiscal_year.month %>
+      <li>Goal <%= @evaluation.goal %></li>
+      <li>Result <%= @evaluation.result %></li>
+    </ul>
+  </div>
+<div>
+
+<div class="reviews">
+<% if @evaluation.user.id != current_user.id %>
+<hr>
+<h4>Post reviews</h4>
+<hr>
+  <div class="review-form">
+    <%= form_with(model: [@evaluation, @review], local: true) do |f| %>
+    Clear
+      <p><%= f.text_area :clear, placeholder: "What is strength of this person?", rows: "3" %></p>
+    Dark
+      <p><%= f.text_area :dark, placeholder: "How this person can be more better?", rows: "3" %></p>
+      <p><%= f.submit "SEND" %></p>
+    <% end %>
+  </div>
+<% end %>
+
+  <div class="reviews">
+    <h4>Review List</h4>
+
+    <% if @reviews %>
+      <hr>
+      Clear
+      <hr>
+      <% @reviews.each do |review| %>
+        <p>
+        <%= review.clear %>
+        </p>
+      <% end %>
+
+      <hr>
+      Dark
+      <hr>
+      <% @reviews.each do |review| %>
+        <p>
+        <%= review.dark %>
+        </p>
+      <% end %>
+    <% end %>
+  </div>
+</div>
