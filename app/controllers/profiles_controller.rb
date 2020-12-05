@@ -39,7 +39,7 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.require(:profile).permit(:contact, :team_id, :joining_year).merge(user_id: current_user.id)
+    params.require(:profile).permit(:contact, :team_id, :joining_date).merge(user_id: current_user.id)
   end
 
   def set_profile

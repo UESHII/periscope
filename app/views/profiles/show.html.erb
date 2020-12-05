@@ -15,7 +15,7 @@
       <ul>
         <li>NAME:<%= @profile.user.name %></li>
         <li>TEAM:<%= @profile.team.name %></li>
-        <li>JOINING YEAR:<%= @profile.joining_year.year %>/<%= @profile.joining_year.month %>
+        <li>JOINING DATE:<%= @profile.joining_date %>
         <li>CONTACT INFORMATION:<%= @profile.contact %>
         <% if @profile.user.id == current_user.id %>
           <li><%= link_to "Edit your profile details", edit_profile_path(current_user.profile.id), method: :get, class: "edit-profile"%></li>

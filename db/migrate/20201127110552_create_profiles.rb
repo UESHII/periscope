@@ -4,7 +4,7 @@ class CreateProfiles < ActiveRecord::Migration[6.0]
       t.string :contact, null: false
       t.references :user, null: false, foreign_key: true
       t.integer :team_id, null: false
-      t.date :joining_year, null: false
+      t.date :joining_date, null: false
       t.timestamps
     end
   end
