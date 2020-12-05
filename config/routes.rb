@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   resources :profiles, only: [:index, :new, :create, :edit, :show, :update, :destroy]
   resources :explores, only: [:index]
   resources :evaluations do
-    resources :reviews, only: [:new, :create]
+    resources :reviews, only: [:create]
   end
 end
