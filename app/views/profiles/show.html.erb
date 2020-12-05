@@ -32,17 +32,25 @@
   <div class="new-post">
     <% if @evaluations.any? %>
       <% @evaluations.each do |evaluation| %>
+          <%= evaluation.id %> : <%= evaluation.created_at %>
+          <%if evaluation.user.id == current_user.id %>
+            <%= link_to "Edit", edit_evaluation_path(evaluation.id) %>
+            <%= link_to "Details", evaluation_path(evaluation.id) %>
+          <% else %>
+            <%= link_to "Details", evaluation_path(evaluation.id) %>
+          <% end %>
         <ul>
-          <%= evaluation.id %> : <%= evaluation.created_at %><%= link_to "Edit", edit_evaluation_path(evaluation.id) %>
           <li>Fiscal Year <%= evaluation.fiscal_year.year %>/<%= evaluation.fiscal_year.month %>
           <li>Goal <%= evaluation.goal %></li>
+          
           <% if evaluation.result %>
-          <li>Result <%= evaluation.result %></li>
+            <li>Result <%= evaluation.result %></li>
           <% else %>
           Result haven't posted yet.
           <% end %>
         </ul>
       <% end %>
+
     <% else %>
       Evaluations appear here after new evaluation posted.
     <% end %>
