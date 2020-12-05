@@ -1,5 +1,4 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-  # DELETE /resource
   def destroy
     resource.soft_delete
     Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name)
