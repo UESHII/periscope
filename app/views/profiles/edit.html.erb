@@ -1,20 +1,31 @@
 <%= render "shared/header" %>
 
 <div class='profiles-sell-main'>
-  <h2 class='profile-sell-input'>Edit your profile</h2>
+  <div class='title'>
+    <p>Edit your profile<p>
+  </div>
 
   <%= form_with model: @profile, method: :patch, local: true do |f| %>
-    <div class='new-profile'>
-      <p>Upload your avatar</p>
-      <%= f.file_field :avatar, id:"avatar" %>
-      <p>Input your contact informations</p>
-      <%= f.text_area :contact, class:"profiles-text", id:"profiles-contact", placeholder:"TEL: 000-0000-0000\nE-mail: example@example.com" %>
-      <p>Select your team</p>
-      <%= f.collection_select(:team_id, @teams, :id, :name, {include_blank: "---"}, {class:"select-box", id:"profile-team"}) %>
-      <p>Select your joining date</p>
-      <%= f.date_select :joining_date, {:discard_day => true, :use_month_numbers => true} %>
-      
-      <%= f.submit "Submit" ,class:"sell-btn" %>
+    <div class='regi-form-box'>
+      <div class="field">
+        <p>Upload your avatar</p>
+        <%= f.file_field :avatar, id:"avatar", class: "upload" %>
+      </div>
+      <div class="field">
+        <p>Input your contact informations</p>
+        <%= f.text_area :contact, class:"profiles-text", id:"profiles-contact", placeholder:"TEL: 000-0000-0000\nE-mail: example@example.com", class: "contact-text" %>
+      </div>
+      <div class="field">
+        <p>Select your team</p>
+        <%= f.collection_select(:team_id, @teams, :id, :name, {include_blank: "---"}, {class:"select-box", id:"profile-team"}) %>
+      </div>
+      <div class="field">
+        <p>Select your joining date</p>
+        <%= f.date_select :joining_date, {:discard_day => true, :use_month_numbers => true} %>
+      </div>
+      <div class="field">
+        <%= f.submit "Submit" ,class:"submit" %>
+      </div>
     </div>
   <% end %>
 </div>

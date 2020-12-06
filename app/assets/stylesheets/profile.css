@@ -1,0 +1,112 @@
+/* Edit */
+.upload {
+  margin-top: 10px;
+}
+.select {
+  -webkit-appearance:none;
+  appearance:none;
+  height: 40px;
+  width: 300px;
+  border:none;
+  border-radius:5px;
+  box-shadow: none;
+  padding: 3px;
+  margin: 3px;
+  background-color: lightgray;
+  font-size: 15px;
+}
+
+.profiles-sell-mail hr{
+  margin: 0;
+  border-color: black;
+}
+
+/* Show */
+.profile-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(40, 40, 40);
+  color: white;
+  padding: 10px 0 30px 0;
+}
+.avatar {
+  width: 150px;
+  margin: 0 5%;
+}
+.profile-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 5%;
+}
+.profile-content li{
+  margin: 10px 0;
+}
+.profile-content p {
+  height: 100%;
+  width: 90%;
+  border: 1px solid darkgray;
+  border-radius:5px;
+  padding: 5px;
+}
+.profile-edit-button a {
+  color: rgb(40,40,40);
+}
+.profile-edit-button {
+  width: 50%;
+  text-align: center;
+  border: none;
+  border-radius:5px;
+  background-color: white;
+  padding: 5px;
+  margin-top: 20px;
+}
+
+/* Evaluation-list */
+.contents-box {
+  color: rgb(40, 40, 40);
+}
+.new-post {
+  margin: 10px;
+  padding: 10px;
+  background-color: white;
+  border: 1px solid rgb(40,40,40);
+}
+.post-info {
+  text-align: center;
+  padding: 5px 0;
+  border-bottom: 1px solid rgb(40, 40, 40);
+}
+.post-contents li{
+  font-weight: bold;
+  font-size: larger;
+  margin-top: 20px;
+}
+
+/* リンク用ボタン */
+.link-button {
+  display: flex;
+  justify-content: space-evenly;
+}
+.link-button p{
+  width: 20%;
+  padding: 5px 0;
+  text-align: center;
+  border: none;
+  border-radius:5px;
+  background-color: rgb(40,40,40);
+  margin-top: 20px;
+}
+.link-button a {
+  color: white;
+}
+
+/* index(Top Page) */
+.post-body {
+  display: flex;
+  padding: 0 10px;
+}
+.post-avatar {
+  margin-right: 30px;
+}

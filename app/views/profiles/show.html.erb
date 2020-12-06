@@ -1,66 +1,72 @@
 <%= render "shared/header" %>
 
-<div class="main">
-  <div class="profile-details">
-    <% if @profile.user.id == current_user.id %>
-    Your profile
-    <hr>
-    <% end %>
-    <div class="profile-details-left">
-      <%# ここにアバター画像が表示されるようにする %>
-      <% if @profile.avatar.attached? %>
-        <%= image_tag @profile.avatar.variant(resize: "100x100"), class:"avatar"%>
-      <% else %>
-        <%= image_tag ("noimage.png"), class:"avatar" %>
-      <% end %>
-    </div>
-    <div class="profile-details-right">
-      <ul>
-        <li>NAME:<%= @profile.user.name %></li>
-        <li>TEAM:<%= @profile.team.name %></li>
-        <li>JOINING DATE:<%= @profile.joining_date %>
-        <li>CONTACT INFORMATION:<%= @profile.contact %>
-        <% if @profile.user.id == current_user.id %>
-          <li><%= link_to "Edit your profile details", edit_profile_path(current_user.profile.id), method: :get, class: "edit-profile"%></li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-  <hr>
+
+<div class="title">
+  <% if @profile.user.id == current_user.id %>
+  <p>Your profile</p>
+  <% end %>
 </div>
 
-<div class="evaluation-list">
-  <%# ここにList Titleを挿入 %>
-  Evaluation Lists
-  <hr>
-  <div class="new-post">
-    <% if @evaluations.any? %>
-      <% @evaluations.each do |evaluation| %>
-          <%= evaluation.id %> : <%= evaluation.created_at %>
-          <%if evaluation.user.id == current_user.id %>
-            <%= link_to "Edit", edit_evaluation_path(evaluation.id) %>
-            <%= link_to "Details", evaluation_path(evaluation.id) %>
-          <% else %>
-            <%= link_to "Details", evaluation_path(evaluation.id) %>
-          <% end %>
-        <ul>
-          <li>Fiscal Year <%= evaluation.fiscal_year.year %>/<%= evaluation.fiscal_year.month %>
-          <li>Goal <%= evaluation.goal %></li>
-          
-          <% if evaluation.result %>
-            <li>Result <%= evaluation.result %></li>
-          <% else %>
-          Result haven't posted yet.
-          <% end %>
-        </ul>
-      <% end %>
-
+<div class="profile-details">
+  <div class="profile-avatar">
+    <% if @profile.avatar.attached? %>
+      <%= image_tag @profile.avatar.variant(resize: "100x100"), class:"avatar"%>
     <% else %>
-      Evaluations appear here after new evaluation posted.
+      <%= image_tag ("noimage.png"), class:"avatar" %>
     <% end %>
   </div>
-  <hr>
 
-  <div class="new-update">
-  </div>
+  <ul class="profile-content">
+    <li>NAME</li>
+    <p><%= @profile.user.name %></p>
+    <li>TEAM</li>
+    <p><%= @profile.team.name %></p>
+    <li>JOINING DATE</li>
+    <p><%= @profile.joining_date %></p>
+    <li>CONTACT INFORMATION</li>
+    <p><%= @profile.contact %></p>
+    <% if @profile.user.id == current_user.id %>
+      <%= link_to "EDIT", edit_profile_path(current_user.profile.id), method: :get, class: "profile-edit-button"%>
+    <% end %>
+  </ul>
+</div>
+
+
+
+<div class="subtitle">
+  Evaluation Lists
+</div>
+
+<div class="contents-box">
+  <% if @evaluations.any? %>
+    <% @evaluations.each do |evaluation| %>
+      <div class="new-post">
+        <div class="post-info">
+          <p>
+            投稿日...<%= evaluation.created_at.strftime('%Y/%m/%d') %> | 営業期...<%= evaluation.fiscal_year.strftime('%Y/%m') %>
+          </p>
+        </div>
+        
+        <ul class="post-contents">
+          <li>Goal</li>
+          <p><%= evaluation.goal %></p>
+          <li>Result</li>
+          <p><%= evaluation.result %></p>
+        </ul>
+        
+        <div class="link-button">
+          <%if evaluation.user.id == current_user.id %>
+            <p><%= link_to "Edit", edit_evaluation_path(evaluation.id) %></p>
+            <p><%= link_to "Details", evaluation_path(evaluation.id) %></p>
+          <% else %>
+            <p><%= link_to "Details", evaluation_path(evaluation.id) %></p>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="new-post">
+      <p>Evaluations appear here after new evaluation posted.</p>
+    </div>
+  <% end %>
 </div>

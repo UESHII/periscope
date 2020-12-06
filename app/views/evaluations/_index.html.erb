@@ -1,29 +1,43 @@
-<div class="evaluation-list">
-  <%# ここにList Titleを挿入 %>
+<div class="subtitle">
   Evaluations waiting for review.
-  <hr>
+</div>
   <% if @evaluations.any? %>
-
+  <div class="contents-box">
     <% @evaluations.each do |evaluation| %>
       <% unless evaluation.reviews.find_by(user_id: current_user.id) %>
         <% if evaluation.user.profile.team == current_user.profile.team && evaluation.user_id != current_user.id %>
           <div class="new-post">
-            <%= evaluation.id %> : <%= evaluation.updated_at %>
-            <%= link_to "Details", evaluation_path(evaluation.id) %>
-            <ul>
-              <li>
-              <% if evaluation.user.profile.avatar.attached? %>
-                <%= image_tag evaluation.user.profile.avatar.variant(resize: "100x100"), class:"avatar"%>
+            <div class="post-info">
+              <p>名前【<%= link_to evaluation.user.name, profile_path(evaluation.user.profile.id) %>】</p>
+              <p>
+                投稿日...<%= evaluation.created_at.strftime('%Y/%m/%d') %> | 営業期...<%= evaluation.fiscal_year.strftime('%Y/%m') %>
+              </p>
+            </div>
+
+            <div class="post-body">
+              <div class="post-avatar">
+                <% if evaluation.user.profile.avatar.attached? %>
+                  <%= image_tag evaluation.user.profile.avatar.variant(resize: "100x100"), class:"avatar"%>
+                <% else %>
+                  <%= image_tag ("noimage.png"),class:"avatar" %>
+                <% end %>
+              </div>
+              <ul class="post-contents">
+                <li>Goal</li>
+                <p><%= evaluation.goal %></p>
+                <li>Result</li>
+                <p><%= evaluation.result %></p>
+              </ul>
+            </div>
+
+            <div class="link-button">
+              <%if evaluation.user.id == current_user.id %>
+                <p><%= link_to "Edit", edit_evaluation_path(evaluation.id) %></p>
+                <p><%= link_to "Details", evaluation_path(evaluation.id) %></p>
               <% else %>
-                <%= image_tag ("noimage.png"),class:"avatar" %>
+                <p><%= link_to "Details", evaluation_path(evaluation.id) %></p>
               <% end %>
-              </li>
-              <li>Fiscal Year <%= evaluation.fiscal_year.year %>/<%= evaluation.fiscal_year.month %>
-              <li>User Name <%= link_to evaluation.user.name, profile_path(evaluation.user.profile.id) %></li>
-              <li>Team <%= evaluation.user.profile.team.name %></li>
-              <li>Goal <%= evaluation.goal %></li>
-              <li>Result <%= evaluation.result %></li>
-            </ul>
+            </div>
           </div>
         <% end %>
       <% end %>
@@ -32,7 +46,6 @@
   <% else %>
     Evaluations appear here after new evaluation posted.
   <% end %>
-  <hr>
 
   <div class="new-update">
   </div>

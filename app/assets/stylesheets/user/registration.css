@@ -1,4 +1,4 @@
-.regi-title{
+.title{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -6,15 +6,30 @@
   width: 100%;
   background-color: rgb(40, 40, 40);
   color: white;
+  font-weight: bold;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+}
+
+.subtitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5vh;
+  width: 100%;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
 }
 
 .regi-form-box {
+  height: 100vh;
   width: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: space-evenly;
-  height: 300px;
 }
 
 input.regi-form {
@@ -24,16 +39,15 @@ input.regi-form {
   border-radius:5px;
   box-shadow: none;
   padding: 3px;
+  margin: 10px;
   background-color: lightgray;
   font-size: 15px;
 }
+
 input:focus {
   outline: none;
 }
 
-.actions {
-  text-align: center;
-}
 .submit {
   height: 40px;
   width: 306px;
@@ -42,12 +56,22 @@ input:focus {
   box-shadow: none;
   background-color: rgb(40, 40, 40);
   color: white;
+  margin: 10px 0;
 }
 
 .another-choice {
-  display: flex;
-  flex-direction: column;
   text-align: center;
   padding: 3px;
   height: 50px;
 }
+
+.field {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.field p{
+  margin: 10px 0;
+}
+
+

@@ -1,6 +1,6 @@
 <%= render "shared/header" %>
 
-<div class="regi-title">
+<div class="title">
   <h2>ログイン</h2>
 </div>
 
@@ -21,12 +21,13 @@
       </div>
     <% end %>
 
-    <div class="actions">
+    <div class="field">
       <%= f.submit "ログイン", class: "submit" %>
     </div>
+
+    <div class="another-choice">
+      <p><%= render "devise/shared/links" %></p>
+    <div>
   </div>
 <% end %>
 
-<div class="another-choice">
-  <p><%= render "devise/shared/links" %></p>
-<div>

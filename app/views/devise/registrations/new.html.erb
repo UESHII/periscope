@@ -1,5 +1,5 @@
 <%= render "shared/header" %>
-<div class="regi-title">
+<div class="title">
   <h2>新規登録</h2>
 </div>
 
@@ -22,14 +22,16 @@
       <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "確認用パスワード", class: "regi-form" %>
     </div>
 
-    <div class="actions">
+    <div class="field">
       <%= f.submit "登録", class: "submit" %>
     </div>
+
+    <div class="another-choice">
+      <p><%= render "devise/shared/links" %></p>
+    <div>
   </div>
 <% end %>
 
-<div class="another-choice">
-  <p><%= render "devise/shared/links" %></p>
-<div>
+
 
 
