@@ -1,38 +1,61 @@
-.top-bar {
-  background-color: rgb(40, 40, 40);
+a {
+  text-decoration: none;
+  color: rgb(200, 200, 200);
 }
-.top-bar-box {
+li {
+  list-style: none;
+}
+.top-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 70px;
-  padding-top: 10px;
-}
-.avatar {
-  margin: 0 50px;
+  height: 8vh;
+  width: 100%;
+  background-color: rgb(40, 40, 40);
 }
 
+/* Logo */
+.top-bar-left {
+  display: flex;
+  margin-left: 10%;
+}
 .logo {
   text-decoration: none;
-  color: white;
-  letter-spacing: 0.4em;
-  font-size: 150%;
+  letter-spacing: 0.2em;
+  font-size: 120%;
   font-weight: bold;
-}
-.top-link{
-  text-decoration: none;
-  color: white;
-}
-.top-bar-right li {
-  list-style: none;
-  margin: 10px 30px;
+  text-align: center;
 }
 
-.top-link-list ul {
+/* ヘッダー右部のリンクリストとアバター */
+.top-bar-right {
   display: flex;
-  justify-content: space-between;
-  list-style: none;
-  font-size: smaller;
-  margin-bottom: 50px;
-  padding: 0 20px 20px 20px;
+  align-items: center;
+  margin-right: 10%;
+}
+.top-bar-link {
+  padding-right: 10%;
+}
+.top-bar-link li {
+  white-space: nowrap;
+}
+
+/* ヘッダー下部のリンクリスト */
+hr {
+  margin: 0;
+}
+.nav {
+  width: 100%;
+}
+.nav-link {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: rgb(40, 40, 40);
+  white-space: nowrap;
+}
+.nav-link li {
+  display: flex;
+  align-items: center;
+  height: 5vh;
+  padding: 0 2%;
 }

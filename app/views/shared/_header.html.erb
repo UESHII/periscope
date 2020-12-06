@@ -1,36 +1,31 @@
 <header>
   <div class="top-bar">
-    <div class="top-bar-box">
-      <div class="top-bar-left">
-        <% if current_user.profile.avatar.attached? %>
-          <%= image_tag current_user.profile.avatar.variant(resize: "50x50"), class:"avatar"%>
-        <% else %>
-          <%= image_tag ("noimage.png"),class:"avatar" %>
-        <% end %>
-      </div>
-
-      <div class="top-bar-middle">
-        <%= link_to "PERISCOPE", root_path, class: "logo"%>
-      </div>
-
-
-      <div class="top-bar-right">
-        <% if user_signed_in? %>
-          <li><%= link_to current_user.name, profile_path(current_user.profile.id), class: "top-link" %></li>
-          <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "top-link" %></li>
-        <% else %>
-          <%= render "devise/registrations/new" %>
-        <% end %>
-      </div>
+    <div class="top-bar-left">
+      <%= link_to "PERISCOPE", root_path, class: "logo"%>
     </div>
-    <hr>
-    <div class="top-link-list">
-      <ul>
-        <li><%= link_to "User list", explores_path, class: "top-link" %></li>
-        <li><%= link_to "Post - Evaluation", new_evaluation_path, class: "top-link" %></li>
-        <li><%= link_to "Edit registration", edit_user_registration_path, class: "top-link" %></li>
-        <li><%= link_to "Edit profile", edit_profile_path(current_user.profile.id), class: "top-link"%></li>
+<% if user_signed_in? %>
+    <div class="top-bar-right">
+      <ul class="top-bar-link">
+        <li><%= link_to current_user.name, profile_path(current_user.profile.id), class: "top-link" %></li>
+        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "top-link" %></li>
       </ul>
+      <div class="top-bar-avatar">
+        <% if current_user.profile.avatar.attached? %>
+          <%= image_tag current_user.profile.avatar.variant(resize: "50x50"), class:"current-user-avatar"%>
+        <% else %>
+          <%= image_tag ("noimage.png"),class:"current-user-avatar" %>
+        <% end %>
+      </div>
     </div>
   </div>
+  <hr>
+  <div class="nav">
+    <ul class="nav-link">
+      <li><%= link_to "EXPLORE", explores_path, class: "top-link" %></li>
+      <li><%= link_to "NEW POST", new_evaluation_path, class: "top-link" %></li>
+      <li><%= link_to "EDIT REGI", edit_user_registration_path, class: "top-link" %></li>
+      <li><%= link_to "EDIT PROF", edit_profile_path(current_user.profile.id), class: "top-link"%></li>
+    </ul>
+  </div>
+<% end %>
 </header>
