@@ -2,29 +2,29 @@
 
 <div class='profiles-sell-main'>
   <div class='title'>
-    <p>Edit your profile<p>
+    <p>プロフィール編集<p>
   </div>
 
   <%= form_with model: @profile, method: :patch, local: true do |f| %>
     <div class='regi-form-box'>
       <div class="field">
-        <p>Upload your avatar</p>
+        <p>プロフィール画像</p>
         <%= f.file_field :avatar, id:"avatar", class: "upload" %>
       </div>
       <div class="field">
-        <p>Input your contact informations</p>
-        <%= f.text_area :contact, class:"profiles-text", id:"profiles-contact", placeholder:"TEL: 000-0000-0000\nE-mail: example@example.com", class: "contact-text" %>
+        <p>連絡先情報</p>
+        <%= f.text_area :contact, class:"profiles-text", id:"profiles-contact", placeholder: "TEL: 000-0000-0000", class: "contact-text" %>
       </div>
       <div class="field">
-        <p>Select your team</p>
+        <p>所属チーム</p>
         <%= f.collection_select(:team_id, @teams, :id, :name, {include_blank: "---"}, {class:"select-box", id:"profile-team"}) %>
       </div>
       <div class="field">
-        <p>Select your joining date</p>
-        <%= f.date_select :joining_date, {:discard_day => true, :use_month_numbers => true} %>
+        <p>入社日</p>
+        <%= f.date_field :joining_date %>
       </div>
       <div class="field">
-        <%= f.submit "Submit" ,class:"submit" %>
+        <%= f.submit "登録" ,class:"submit" %>
       </div>
     </div>
   <% end %>

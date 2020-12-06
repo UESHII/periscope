@@ -7,9 +7,9 @@ Search users
   <p><%= f.label :profile_team_id_eq, 'Team'%></p>
   <%= f.collection_select :profile_team_id_eq, @teams, :id, :name, include_blank: true %>
   <p><%= f.label :profile_joining_date_gteq, 'Joining Date'%></p>
-  <%= f.date_field :profile_joining_date_gteq, discard_day: true %>
+  <%= f.date_field :profile_joining_date_gteq %>
   ~
-  <%= f.date_field :profile_joining_date_lteq_end_of_day, discard_day: true %>
+  <%= f.date_field :profile_joining_date_lteq_end_of_day %>
 
   <%= f.submit %>
 <% end %>

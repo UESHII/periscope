@@ -7,8 +7,10 @@
   background-color: rgb(40, 40, 40);
   color: white;
   font-weight: bold;
+  white-space: nowrap;
   border-top: 1px solid lightgray;
   border-bottom: 1px solid lightgray;
+  margin-bottom: 10px;
 }
 
 .subtitle {
@@ -20,8 +22,10 @@
   background-color: white;
   color: black;
   font-weight: bold;
+  white-space: nowrap;
   border-top: 1px solid lightgray;
   border-bottom: 1px solid lightgray;
+  margin-bottom: 10px;
 }
 
 .regi-form-box {
