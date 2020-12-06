@@ -1,6 +1,10 @@
-a {
+header a {
   text-decoration: none;
   color: rgb(200, 200, 200);
+}
+a {
+  text-decoration: none;
+  color: black;
 }
 li {
   list-style: none;
