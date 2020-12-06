@@ -15,18 +15,18 @@
             </div>
 
             <div class="post-body">
-              <div class="post-avatar">
+              <div class="post-avatar-sec">
                 <% if evaluation.user.profile.avatar.attached? %>
-                  <%= image_tag evaluation.user.profile.avatar.variant(resize: "100x100"), class:"avatar"%>
+                  <%= image_tag evaluation.user.profile.avatar.variant(gravity: :center, resize:"80x80^", crop:"80x80+0+0").processed, class:"post-avatar"%>
                 <% else %>
-                  <%= image_tag ("noimage.png"),class:"avatar" %>
+                  <%= image_tag ("noimage.png"), class:"avatar" %>
                 <% end %>
               </div>
               <ul class="post-contents">
                 <li>Goal</li>
-                <p><%= evaluation.goal %></p>
+                <p><%= safe_join(evaluation.goal.split("\n"),tag(:br))%></p>
                 <li>Result</li>
-                <p><%= evaluation.result %></p>
+                <p><%= safe_join(evaluation.result.split("\n"),tag(:br))%></p>
               </ul>
             </div>
 

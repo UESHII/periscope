@@ -10,7 +10,7 @@
 <div class="profile-details">
   <div class="profile-avatar">
     <% if @profile.avatar.attached? %>
-      <%= image_tag @profile.avatar.variant(resize: "100x100"), class:"avatar"%>
+      <%= image_tag @profile.avatar.variant(gravity: :center, resize:"150x150^", crop:"150x150+0+0").processed, class:"avatar"%>
     <% else %>
       <%= image_tag ("noimage.png"), class:"avatar" %>
     <% end %>
@@ -24,7 +24,7 @@
     <li>JOINING DATE</li>
     <p><%= @profile.joining_date %></p>
     <li>CONTACT INFORMATION</li>
-    <p><%= @profile.contact %></p>
+    <p><%= safe_join(@profile.contact.split("\n"),tag(:br))%></p>
     <% if @profile.user.id == current_user.id %>
       <%= link_to "EDIT", edit_profile_path(current_user.profile.id), method: :get, class: "profile-edit-button"%>
     <% end %>
@@ -49,9 +49,9 @@
         
         <ul class="post-contents">
           <li>Goal</li>
-          <p><%= evaluation.goal %></p>
+          <p><%= safe_join(evaluation.goal.split("\n"),tag(:br))%></p>
           <li>Result</li>
-          <p><%= evaluation.result %></p>
+          <p><%= safe_join(evaluation.result.split("\n"),tag(:br))%></p>
         </ul>
         
         <div class="link-button">

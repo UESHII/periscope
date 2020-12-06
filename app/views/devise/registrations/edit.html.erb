@@ -40,12 +40,11 @@
     </div>
   </div>
 <% end %>
-<div class="regi-title">
+<div class="title">
   <h3>アカウント登録解除</h3>
 </div>
-<div class="field">
+<div class="delete-field">
   <p>アカウントの登録を解除する場合のみ押して下さい</p>
   <p><%= button_to "登録解除", user_registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "submit" %></p>
-  <p><%= button_to "解除しない", :back, class: "submit" %></p>
+  <p><%= button_to "解除しない", root_path, method: :get, class: "submit" %></p>
 </div>
-
