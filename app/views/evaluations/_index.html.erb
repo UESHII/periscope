@@ -19,7 +19,7 @@
                 <% if evaluation.user.profile.avatar.attached? %>
                   <%= image_tag evaluation.user.profile.avatar.variant(gravity: :center, resize:"80x80^", crop:"80x80+0+0").processed, class:"post-avatar"%>
                 <% else %>
-                  <%= image_tag ("noimage.png"), class:"avatar" %>
+                  <%= image_tag ("noimage.png"), class:"post-avatar" %>
                 <% end %>
               </div>
               <ul class="post-contents">

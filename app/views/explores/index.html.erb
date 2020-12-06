@@ -2,28 +2,43 @@
 
 <%= render "search_form"%>
 
-<div class="main">
+<div class="subtitle">
+  <p>ユーザー一覧</p>
+</div>
 
+
+
+<div class="contents-box">
   <% if @users.any? %>
     <% @users.each do |user| %>
       <% if user.profile && user != current_user%>
-        <% if user.profile.avatar.attached? %>
-          <%= image_tag user.profile.avatar.variant(resize: "100x100"), class:"avatar"%>
-        <% else %>
-          <%= image_tag ("noimage.png"),class:"avatar" %>
-        <% end %>
-        <li>
-          <%= link_to user.name, profile_path(user.profile.id) %>
-          <span>TEAM :</span>
-          <%= user.profile.team.name %>
-          <span>CONTACT INFOMATION</span>
-          <%= user.profile.contact %>
-        </li>
+        <div class="new-post">
+          <div class="post-info">
+            <p><%= link_to user.name, profile_path(user.profile.id) %></p>
+          </div>
+        
+          <div class="post-body">
+            <div class="post-avatar-sec">
+              <% if user.profile.avatar.attached? %>
+                <%= image_tag user.profile.avatar.variant(resize: "80x80"), class:"post-avatar"%>
+              <% else %>
+                <%= image_tag ("noimage.png"),class:"post-avatar" %>
+              <% end %>
+            </div>
+            <ul class="post-contents">
+              <li>所属チーム</li>
+              <p><%= user.profile.team.name %></p>
+              <li>CONTACT INFOMATION</li>
+              <p><%= user.profile.contact %></p>
+            </ul>
+          </div>
+          <div class="link-button">
+            <p><%= link_to "Details", profile_path(user.profile.id) %></p>
+          </div>
+        </div>
       <% end %>
     <% end %>
   <% else %>
-    <li>
       <p>User informations appear here after new user joined.</p>
-    </li>
   <% end %>
 </div>

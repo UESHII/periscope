@@ -25,8 +25,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(40, 40, 40);
-  color: white;
+  background-color: white;
+  color: rgb(40, 40,40);
   padding: 10px 0 30px 0;
 }
 .avatar {
@@ -50,17 +50,15 @@
   padding: 5px;
   word-break: break-all;
 }
-.profile-edit-button a {
-  color: rgb(40,40,40);
-}
 .profile-edit-button {
   width: 100%;
   text-align: center;
   border: none;
   border-radius:5px;
-  background-color: white;
+  background-color: rgb(40, 40, 40);
   padding: 5px;
   margin-top: 20px;
+  color: white;
 }
 
 /* Evaluation-list */
@@ -84,6 +82,9 @@
   font-weight: bold;
   font-size: larger;
   margin-top: 20px;
+}
+.post-contents p{
+  word-break: break-all;
 }
 
 /* リンク用ボタン */
