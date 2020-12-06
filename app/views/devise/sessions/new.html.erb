@@ -1,19 +1,17 @@
 <%= render "shared/header" %>
 
-<div class="title">
+<div class="regi-title">
   <h2>ログイン</h2>
 </div>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="regi-form-box">
     <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "regi-form" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "E-MAIL", class: "regi-form" %>
     </div>
 
     <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "current-password", class: "regi-form" %>
+      <%= f.password_field :password, autocomplete: "current-password", placeholder: "PASSWORD", class: "regi-form" %>
     </div>
 
     <% if devise_mapping.rememberable? %>

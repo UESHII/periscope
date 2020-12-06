@@ -1,4 +1,4 @@
-.title{
+.regi-title{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,6 +25,7 @@ input.regi-form {
   box-shadow: none;
   padding: 3px;
   background-color: lightgray;
+  font-size: 15px;
 }
 input:focus {
   outline: none;
