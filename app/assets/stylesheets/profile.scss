@@ -32,12 +32,14 @@ $form-height: 40px;
   width: $form-width;
   border-radius: 5px;
   border: 1px solid darkgray;
+  background-color: white;
 }
 .form-date-select {
   height: $form-height;
   width: $form-width / 2 - 5px;
   border-radius: 5px;
   border: 1px solid darkgray;
+  background-color: white;
 }
 .profile-contact {
   height: $form-height + 40px;

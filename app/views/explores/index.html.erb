@@ -18,7 +18,7 @@
           <div class="post-body">
             <div class="post-avatar-sec">
               <% if user.profile.avatar.attached? %>
-                <%= image_tag user.profile.avatar..variant(gravity: :center, resize:"150x150^", crop:"150x150+0+0").processed, class:"post-avatar"%>
+                <%= image_tag user.profile.avatar.variant(gravity: :center, resize:"150x150^", crop:"150x150+0+0").processed, class:"post-avatar"%>
               <% else %>
                 <%= image_tag ("noimage.png"),class:"post-avatar" %>
               <% end %>
