@@ -1,13 +1,42 @@
-<h1>
-Result
-</h1>
+<%= render 'shared/header' %>
+
+<div class="subtitle">
+  Result
+</div>
+
 <% if @results != 0 %>
   <% @results.each do |result| %>
     <% if result.profile %>
-      <p>NAME:<%= link_to result.name, profile_path(result.profile.id) %></p>
-      <p>TEAM:<%= result.profile.team.name %></p>
-      <p>CONTACT:<%= result.profile.contact %></p>
-      <p>JOINING DATE:<%= result.profile.joining_date %>
+      <div class="new-post">
+        <div class="post-info">
+          <p><%= link_to result.name, profile_path(result.profile.id) %></p>
+        </div>
+        <div class="post-body">
+          <div class="post-avatar-sec">
+            <% if result.profile.avatar.attached? %>
+              <%= image_tag result.profile.avatar.variant(gravity: :center, resize:"80x80^", crop:"80x80+0+0").processed, class:"post-avatar"%>
+            <% else %>
+              <%= image_tag ("noimage.png"), class:"post-avatar" %>
+            <% end %>
+          </div>
+          <ul class="post-contents">
+            <li>所属チーム</li>
+            <p><%= result.profile.team.name %></p>
+            <li>CONTACT</li>
+            <p><%= result.profile.contact %></p>
+            <li>JOINING DATE</li>
+            <p><%= result.profile.joining_date.strftime('%Y/%m/%d') %></p>
+          </ul>
+        </div>
+        <div class="link-button">
+          <%if result.id == current_user.id %>
+            <p><%= link_to "Edit", edit_profile_path(result.profile.id) %></p>
+            <p><%= link_to "Details", profile_path(result.profile.id) %></p>
+          <% else %>
+            <p><%= link_to "Details", profile_path(result.profile.id) %></p>
+          <% end %>
+        </div>
+      </div>
     <% end %>
   <% end %>
 <% end %>
