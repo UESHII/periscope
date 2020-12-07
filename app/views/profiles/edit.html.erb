@@ -1,35 +1,33 @@
 <%= render "shared/header" %>
 
-<div class='profiles-sell-main'>
-  <div class='title'>
-    <p>プロフィール編集<p>
-  </div>
+<div class='title'>
+  <p>プロフィール編集<p>
+</div>
 
-  <%= form_with model: @profile, method: :patch, local: true do |f| %>
-    <div class='form-box'>
-      <div class="field">
-        <p>プロフィール画像</p>
-        <div class="avatar-field">
-          <%= f.label :avater, for: "avatar", class: "fa fa-file-image-o" do %>
-          <%= f.file_field :avatar, id:"avatar", style: "display:none", class:"upload-file" %>
-          <% end %>
-        </div>
-      </div>
-      <div class="field">
-        <p>連絡先情報</p>
-        <%= f.text_area :contact, class:"profiles-text", id:"profiles-contact", placeholder: "TEL: 000-0000-0000", class: "profile-contact" %>
-      </div>
-      <div class="field">
-        <p>所属チーム</p>
-        <%= f.collection_select(:team_id, @teams, :id, :name, {include_blank: "---"}, {class:"profile-team"}) %>
-      </div>
-      <div class="field">
-        <p>入社日</p>
-        <%= f.date_field :joining_date, class: "profile-date" %>
-      </div>
-      <div class="field">
-        <%= f.submit "登録" ,class:"submit" %>
+<%= form_with model: @profile, method: :patch, local: true do |f| %>
+  <div class='form-box'>
+    <div class="field">
+      <p>プロフィール画像</p>
+      <div class="avatar-field">
+        <%= f.label :avater, for: "avatar", class: "fa fa-file-image-o" do %>
+        <%= f.file_field :avatar, id:"avatar", style: "display:none", class:"upload-file" %>
+        <% end %>
       </div>
     </div>
-  <% end %>
-</div>
+    <div class="field">
+      <p>連絡先情報</p>
+      <%= f.text_area :contact, id:"profiles-contact", placeholder: "TEL: 000-0000-0000", class: "form-text" %>
+    </div>
+    <div class="field">
+      <p>所属チーム</p>
+      <%= f.collection_select(:team_id, @teams, :id, :name, {include_blank: "---"}, {class:"form-team"}) %>
+    </div>
+    <div class="field">
+      <p>入社日</p>
+      <%= f.date_field :joining_date, class: "form-date" %>
+    </div>
+    <div class="field">
+      <%= f.submit "登録" ,class:"submit" %>
+    </div>
+  </div>
+<% end %>

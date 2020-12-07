@@ -7,19 +7,19 @@
   <%= render "devise/shared/error_messages", resource: resource %>
   <div class="form-box">
     <div class="field">
-      <%= f.text_field :name, autofocus: true, maxlength: "20",placeholder: "NAME", class: "regi-form" %>
+      <%= f.text_field :name, autofocus: true, maxlength: "20",placeholder: "NAME", class: "form-name" %>
     </div>
 
     <div class="field">
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "E-MAIL", class: "regi-form" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "E-MAIL", class: "form-mail" %>
     </div>
 
     <div class="field">
-      <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード\n英数字混合6文字以上", class: "regi-form" %>
+      <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード\n英数字混合6文字以上", class: "form-password" %>
     </div>
 
     <div class="field">
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "確認用パスワード", class: "regi-form" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "確認用パスワード", class: "form-password" %>
     </div>
 
     <div class="field">

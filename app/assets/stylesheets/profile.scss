@@ -18,21 +18,24 @@ $form-height: 40px;
   background-color: lightgray;
   font-size: 15px;
 }
-.profiles-sell-mail {
-  hr{
-  margin: 0;
-  border-color: black;
-  }
-}
+
 .avatar-field {
   margin: 20px;
 }
-.profile-name,
-.profile-team,
-.profile-contact,
-.profile-date {
+.form-name,
+.form-team,
+.form-text,
+.form-mail,
+.form-password,
+.form-date {
   height: $form-height;
   width: $form-width;
+  border-radius: 5px;
+  border: 1px solid darkgray;
+}
+.form-date-select {
+  height: $form-height;
+  width: $form-width / 2 - 5px;
   border-radius: 5px;
   border: 1px solid darkgray;
 }

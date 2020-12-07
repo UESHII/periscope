@@ -8,12 +8,12 @@
   <div class="form-box">
     <div class="field">
       <p>NAME（20文字以内）</p>
-      <%= f.text_field :name, autofocus: true, autocomplete: "name", maxlength: "20",placeholder: "例）山田太郎", class: "regi-form" %>
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", maxlength: "20",placeholder: "例）山田太郎", class: "form-name" %>
     </div>
 
     <div class="field">
       <p>E-MAIL</p>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "NAME", class: "regi-form" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "NAME", class: "form-name" %>
     </div>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -22,17 +22,17 @@
 
     <div class="field">
       <p>新しいパスワード (パスワード更新時）</p>
-      <%= f.password_field :password, autocomplete: "new-password",placeholder: "PASSWORD", class: "regi-form" %>
+      <%= f.password_field :password, autocomplete: "new-password",placeholder: "PASSWORD", class: "form-password" %>
     </div>
 
     <div class="field">
       <p>もう一度入力して下さい</p>
-      <%= f.password_field :password_confirmation, autocomplete: "new-password",placeholder: "PASSWORD CONFIRMATION", class: "regi-form" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password",placeholder: "PASSWORD CONFIRMATION", class: "form-password" %>
     </div>
 
     <div class="field">
       <p>現在のパスワード</p>
-      <%= f.password_field :current_password, autocomplete: "current-password",placeholder: "CURRENT PASSWORD", class: "regi-form" %>
+      <%= f.password_field :current_password, autocomplete: "current-password",placeholder: "CURRENT PASSWORD", class: "form-password" %>
     </div>
 
     <div class="field">
