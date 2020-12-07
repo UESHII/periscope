@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+  @import "font-awesome";
+
+  // Use fonts with
+  // font-family: 'JetBrains Mono', monospace;
+  // font-family: 'Noto Sans JP', sans-serif;
+  
+  // Noto Sans JP set for all
+  *{ font-family: 'Noto Sans JP', sans-serif; }
+

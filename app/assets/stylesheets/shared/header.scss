@@ -1,3 +1,5 @@
+$logo-font: 'JetBrains Mono', monospace;
+
 header a {
   text-decoration: none;
   color: rgb(200, 200, 200);
@@ -28,9 +30,10 @@ li {
   color: white;
   letter-spacing: 0.2em;
   font-size: 120%;
+  font-weight: bolder;
   text-decoration: none;
-  font-weight: bold;
   text-align: center;
+  font-family: $logo-font;
 }
 
 /* ヘッダー右部のリンクリストとアバター */
@@ -38,10 +41,10 @@ li {
   display: flex;
   align-items: center;
   margin-right: 10%;
-}
-.top-bar-right li {
-  white-space: nowrap;
-  margin-right: 10%;
+  li {
+    white-space: nowrap;
+    margin-right: 10%;
+  }
 }
 
 /* ヘッダー下部のリンクリスト */
@@ -52,11 +55,15 @@ li {
   display: flex;
   justify-content: space-evenly;
   background-color: rgb(40, 40, 40);
-}
-.nav-link li {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  height: 7vh;
-  padding: 0 2%;
+  li {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    height: 7vh;
+    padding: 0 2%;
+  }
+  a {
+    font-family: $logo-font;
+    font-weight: bolder;
+  }
 }

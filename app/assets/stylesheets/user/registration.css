@@ -12,7 +12,6 @@
   border-bottom: 1px solid lightgray;
   margin-bottom: 10px;
 }
-
 .subtitle {
   display: flex;
   align-items: center;
@@ -27,13 +26,13 @@
   border-bottom: 1px solid lightgray;
   margin: 10px;
 }
-
-.regi-form-box {
+.form-box {
   width: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
 }
+
 input.regi-form {
   height: 40px;
   width: 300px;
@@ -41,12 +40,20 @@ input.regi-form {
   border-radius:5px;
   box-shadow: none;
   padding: 3px;
-  margin: 10px 0;
   background-color: lightgray;
   font-size: 15px;
 }
 input:focus {
   outline: none;
+}
+.profile-date {
+  width: 300px;
+}
+.profile-team {
+  size: 300px;
+}
+.profile-contact {
+  width: 300px;
 }
 
 .submit {
@@ -57,7 +64,10 @@ input:focus {
   box-shadow: none;
   background-color: rgb(40, 40, 40);
   color: white;
-  margin: 10px 0;
+  margin: 5px 0;
+}
+.regi-edit-submit{
+  margin-bottom: 50px;
 }
 
 .another-choice {
@@ -67,14 +77,16 @@ input:focus {
 }
 
 .field {
-  margin-top: 5px;
+  margin: 5px;
   text-align: center;
 }
 
+
 .field p{
-  margin: 5px 0;
+  margin: 5px;
 }
 
+/* Edit registration */
 .delete-field {
   margin-top: 20px;
   text-align: center;

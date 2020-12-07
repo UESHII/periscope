@@ -1,4 +1,7 @@
 /* Edit */
+$form-width: 300px;
+$form-height: 40px;
+
 .upload {
   margin-top: 10px;
 }
@@ -19,6 +22,28 @@
   margin: 0;
   border-color: black;
 }
+.avatar-field {
+  margin: 20px;
+}
+.profile-contact {
+  height: $form-height + 40px;
+  width: $form-width;
+  border-radius: 5px;
+  border: 1px solid darkgray;
+}
+.profile-team {
+  height: $form-height;
+  width: $form-width;
+  border-radius: 5px;
+  border: 1px solid darkgray;
+
+}
+.profile-date {
+  height: $form-height;
+  width: $form-width;
+  border-radius: 5px;
+  border: 1px solid darkgray;
+}
 
 /* Show */
 .profile-details {
@@ -38,17 +63,17 @@
   flex-direction: column;
   /* align-items: center; */
   margin: 0 5%;
-}
-.profile-content li{
-  margin: 10px 0;
-}
-.profile-content p {
+  li{
+    margin: 10px 0;
+  }
+  p {
   height: 100%;
   width: 100%;
   border: 1px solid darkgray;
   border-radius:5px;
   padding: 5px;
   word-break: break-all;
+  }
 }
 .profile-edit-button {
   width: 100%;
@@ -82,28 +107,29 @@
   font-weight: bold;
   font-size: larger;
   margin-top: 20px;
-}
-.post-contents p{
-  word-break: break-all;
+  p{
+    word-break: break-all;
+  }
 }
 
 /* リンク用ボタン */
 .link-button {
   display: flex;
   justify-content: space-evenly;
+  p{
+    width: 20%;
+    padding: 5px 0;
+    text-align: center;
+    border: none;
+    border-radius:5px;
+    background-color: rgb(40,40,40);
+    margin-top: 20px;
+  }
+  a {
+    color: white;
+  }
 }
-.link-button p{
-  width: 20%;
-  padding: 5px 0;
-  text-align: center;
-  border: none;
-  border-radius:5px;
-  background-color: rgb(40,40,40);
-  margin-top: 20px;
-}
-.link-button a {
-  color: white;
-}
+
 
 /* _index.html.erb(profiles#index rendering) */
 .post-body {
@@ -118,3 +144,5 @@
 .post-avatar {
   width: 80px; 
 }
+
+/* search-form.html.erb(explore#index rendering */

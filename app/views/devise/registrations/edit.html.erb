@@ -5,7 +5,7 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-  <div class="regi-form-box">
+  <div class="form-box">
     <div class="field">
       <p>NAME（20文字以内）</p>
       <%= f.text_field :name, autofocus: true, autocomplete: "name", maxlength: "20",placeholder: "例）山田太郎", class: "regi-form" %>
@@ -36,7 +36,9 @@
     </div>
 
     <div class="field">
-      <%= f.submit "更新", class: "submit" %>
+      <div class="regi-edit-submit">
+        <%= f.submit "更新", class: "submit" %>
+      </div>
     </div>
   </div>
 <% end %>

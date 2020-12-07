@@ -14,7 +14,7 @@
   </div>
 
   <%= form_with model: @profile, method: :post, local: true do |f| %>
-    <div class="regi-form-box">
+    <div class="form-box">
       <div class="field">
         <p>プロフィール画像</p>
         <%= f.file_field :avatar, id:"avatar" %>
@@ -29,7 +29,7 @@
       </div>
       <div class="field">
         <p>入社日</p>
-        <%= f.date_field :joining_date %>
+        <%= f.date_field :joining_date, class: "profile-date"%>
       </div>
       <div class="field">
         <%= f.submit "登録" ,class:"submit" %>
