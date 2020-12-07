@@ -1,16 +1,25 @@
-<h1>
-Search users
-</h1>
-<%= search_form_for @u, url: explores_search_path do |f| %>
-  <p><%= f.label :name_cont, 'Name' %></p>
-  <%= f.text_field :name_cont %>
-  <p><%= f.label :profile_team_id_eq, 'Team'%></p>
-  <%= f.collection_select :profile_team_id_eq, @teams, :id, :name, include_blank: true %>
-  <p><%= f.label :profile_joining_date_gteq, 'Joining Date'%></p>
-  <%= f.date_field :profile_joining_date_gteq %>
-  ~
-  <%= f.date_field :profile_joining_date_lteq_end_of_day %>
-
-  <%= f.submit %>
-<% end %>
+<div class="subtitle">
+  ユーザー検索
 </div>
+
+<%= search_form_for @u, url: explores_search_path do |f| %>
+  <div class="form-box">
+    <div class="field">
+      <p><%= f.label :name_cont, '名前' %></p>
+      <%= f.text_field :name_cont, class: "profile-name"%>
+    </div>
+    <div class="field">
+      <p><%= f.label :profile_team_id_eq, '所属チーム'%></p>
+      <%= f.collection_select :profile_team_id_eq, @teams, :id, :name, {include_blank: true},{class: "profile-team"} %>
+    </div>
+    <div class="field">
+      <p><%= f.label :profile_joining_date_gteq, '入社日'%></p>
+      <p><%= f.date_field :profile_joining_date_gteq, class: "profile-date" %></p>
+      <p>〜</p>
+      <p><%= f.date_field :profile_joining_date_lteq_end_of_day, class:"profile-date" %></p>
+    </div>
+    <div class="field">
+      <%= f.submit "検索", class:"submit"%>
+    </div>
+  </div>
+<% end %>

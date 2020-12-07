@@ -1,4 +1,4 @@
-/* Edit */
+/* edit, search-form */
 $form-width: 300px;
 $form-height: 40px;
 
@@ -18,32 +18,28 @@ $form-height: 40px;
   background-color: lightgray;
   font-size: 15px;
 }
-.profiles-sell-mail hr{
+.profiles-sell-mail {
+  hr{
   margin: 0;
   border-color: black;
+  }
 }
 .avatar-field {
   margin: 20px;
 }
-.profile-contact {
-  height: $form-height + 40px;
-  width: $form-width;
-  border-radius: 5px;
-  border: 1px solid darkgray;
-}
-.profile-team {
-  height: $form-height;
-  width: $form-width;
-  border-radius: 5px;
-  border: 1px solid darkgray;
-
-}
+.profile-name,
+.profile-team,
+.profile-contact,
 .profile-date {
   height: $form-height;
   width: $form-width;
   border-radius: 5px;
   border: 1px solid darkgray;
 }
+.profile-contact {
+  height: $form-height + 40px;
+}
+
 
 /* Show */
 .profile-details {
@@ -103,10 +99,11 @@ $form-height: 40px;
   padding: 5px 0;
   border-bottom: 1px solid rgb(40, 40, 40);
 }
-.post-contents li{
-  font-weight: bold;
-  font-size: larger;
+.post-contents {
+  li{
+  font-weight: bolder;
   margin-top: 20px;
+  }
   p{
     word-break: break-all;
   }
@@ -144,5 +141,4 @@ $form-height: 40px;
 .post-avatar {
   width: 80px; 
 }
-
 /* search-form.html.erb(explore#index rendering */

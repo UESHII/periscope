@@ -46,15 +46,6 @@ input.regi-form {
 input:focus {
   outline: none;
 }
-.profile-date {
-  width: 300px;
-}
-.profile-team {
-  size: 300px;
-}
-.profile-contact {
-  width: 300px;
-}
 
 .submit {
   height: 40px;
