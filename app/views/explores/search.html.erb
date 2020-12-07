@@ -1,7 +1,7 @@
 <%= render 'shared/header' %>
 
 <div class="subtitle">
-  Result
+  検索結果
 </div>
 
 <% if @results != 0 %>
@@ -22,18 +22,18 @@
           <ul class="post-contents">
             <li>所属チーム</li>
             <p><%= result.profile.team.name %></p>
-            <li>CONTACT</li>
+            <li>連絡先情報</li>
             <p><%= result.profile.contact %></p>
-            <li>JOINING DATE</li>
+            <li>入社日</li>
             <p><%= result.profile.joining_date.strftime('%Y/%m/%d') %></p>
           </ul>
         </div>
         <div class="link-button">
           <%if result.id == current_user.id %>
-            <p><%= link_to "Edit", edit_profile_path(result.profile.id), class:"link-button-body" %></p>
-            <p><%= link_to "Details", profile_path(result.profile.id), class:"link-button-body" %></p>
+            <p><%= link_to "編集", edit_profile_path(result.profile.id), class:"link-button-body" %></p>
+            <p><%= link_to "詳細", profile_path(result.profile.id), class:"link-button-body" %></p>
           <% else %>
-            <p><%= link_to "Details", profile_path(result.profile.id), class:"link-button-body" %></p>
+            <p><%= link_to "詳細", profile_path(result.profile.id), class:"link-button-body" %></p>
           <% end %>
         </div>
       </div>

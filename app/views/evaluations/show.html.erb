@@ -31,10 +31,10 @@
 
     <div class="link-button">
       <%if @evaluation.user.id == current_user.id %>
-        <p><%= link_to "Edit", edit_evaluation_path(@evaluation.id), class:"link-button-body" %></p>
-        <p><%= link_to "Details", evaluation_path(@evaluation.id), class:"link-button-body" %></p>
+        <p><%= link_to "編集", edit_evaluation_path(@evaluation.id), class:"link-button-body" %></p>
+        <p><%= link_to "詳細", evaluation_path(@evaluation.id), class:"link-button-body" %></p>
       <% else %>
-        <p><%= link_to "Details", evaluation_path(@evaluation.id), class:"link-button-body" %></p>
+        <p><%= link_to "詳細", evaluation_path(@evaluation.id), class:"link-button-body" %></p>
       <% end %>
     </div>
   </div>
@@ -43,7 +43,7 @@
 <%# Review form %>
 <% if @evaluation.user.id != current_user.id %>
   <div class="subtitle">
-    Review
+    Review投稿フォーム
   </div>
   <%= form_with(model: [@evaluation, @review], local: true) do |f| %>
     <div class="review-form">
@@ -56,7 +56,7 @@
         <%= f.text_area :dark, class: "review-form-text", placeholder: "どうすればこの人はもっと良くなると思いますか？" %>
       </div>
       <div class="field">
-        <%= f.submit "SEND", class: "submit"%>
+        <%= f.submit "送信", class: "submit"%>
       </div>
   <% end %>
 <% end %>

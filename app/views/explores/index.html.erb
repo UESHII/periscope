@@ -26,17 +26,17 @@
             <ul class="post-contents">
               <li>所属チーム</li>
               <p><%= user.profile.team.name %></p>
-              <li>CONTACT INFOMATION</li>
+              <li>連絡先情報</li>
               <p><%= user.profile.contact %></p>
             </ul>
           </div>
           <div class="link-button">
-            <p><%= link_to "Details", profile_path(user.profile.id), class:"link-button-body" %></p>
+            <p><%= link_to "詳細", profile_path(user.profile.id), class:"link-button-body" %></p>
           </div>
         </div>
       <% end %>
     <% end %>
   <% else %>
-      <p>User informations appear here after new user joined.</p>
+      <p>まだ他のユーザーが登録されていないようです</p>
   <% end %>
 </div>

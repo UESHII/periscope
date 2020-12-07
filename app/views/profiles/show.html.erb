@@ -1,10 +1,15 @@
 <%= render "shared/header" %>
 
-<div class="title">
-  <% if @profile.user.id == current_user.id %>
-  <p>Your profile</p>
-  <% end %>
-</div>
+
+<% if @profile.user.id == current_user.id %>
+  <div class="title">
+    <p>あなたのプロフィール</p>
+  </div>
+<% else %>
+  <div class="subtitle">
+    <p><%= @profile.user.name %>さんのプロフィール</p>
+  </div>
+<% end %>
 
 <div class="profile-details">
   <div class="profile-avatar">
@@ -16,13 +21,13 @@
   </div>
 
   <ul class="profile-content">
-    <li>NAME</li>
+    <li>名前</li>
     <p><%= @profile.user.name %></p>
-    <li>TEAM</li>
+    <li>所属チーム</li>
     <p><%= @profile.team.name %></p>
-    <li>JOINING DATE</li>
+    <li>入社日</li>
     <p><%= @profile.joining_date %></p>
-    <li>CONTACT INFORMATION</li>
+    <li>連絡先情報</li>
     <p><%= safe_join(@profile.contact.split("\n"),tag(:br))%></p>
     <% if @profile.user.id == current_user.id %>
       <%= link_to "EDIT", edit_profile_path(current_user.profile.id), method: :get, class: "profile-edit-button"%>
@@ -31,7 +36,7 @@
 </div>
 
 <div class="subtitle">
-  Evaluation Lists
+  Evaluation一覧
 </div>
 
 <div class="contents-box">
@@ -53,17 +58,17 @@
         
         <div class="link-button">
           <%if evaluation.user.id == current_user.id %>
-            <p><%= link_to "Edit", edit_evaluation_path(evaluation.id), class:"link-button-body" %></p>
-            <p><%= link_to "Details", evaluation_path(evaluation.id), class:"link-button-body" %></p>
+            <p><%= link_to "編集", edit_evaluation_path(evaluation.id), class:"link-button-body" %></p>
+            <p><%= link_to "詳細", evaluation_path(evaluation.id), class:"link-button-body" %></p>
           <% else %>
-            <p><%= link_to "Details", evaluation_path(evaluation.id), class:"link-button-body" %></p>
+            <p><%= link_to "詳細", evaluation_path(evaluation.id), class:"link-button-body" %></p>
           <% end %>
         </div>
       </div>
     <% end %>
   <% else %>
     <div class="new-post">
-      <p>Evaluations appear here after new evaluation posted.</p>
+      <p>まだEvaluationが投稿されていないようです</p>
     </div>
   <% end %>
 </div>
