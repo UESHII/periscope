@@ -24,7 +24,7 @@ li {
 /* Logo */
 .top-bar-left {
   display: flex;
-  margin-left: 10%;
+  margin-left: 20px;
 }
 .logo {
   color: white;
@@ -40,10 +40,10 @@ li {
 .top-bar-right {
   display: flex;
   align-items: center;
-  margin-right: 10%;
+  margin-right: 5px;
   li {
     white-space: nowrap;
-    margin-right: 10%;
+    margin-right: 10px;
   }
 }
 
@@ -60,7 +60,7 @@ li {
     align-items: center;
     text-align: center;
     height: 7vh;
-    padding: 0 2%;
+    padding: 0 1%;
   }
   a {
     font-family: $logo-font;
