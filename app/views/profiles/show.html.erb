@@ -53,10 +53,10 @@
         
         <div class="link-button">
           <%if evaluation.user.id == current_user.id %>
-            <p><%= link_to "Edit", edit_evaluation_path(evaluation.id) %></p>
-            <p><%= link_to "Details", evaluation_path(evaluation.id) %></p>
+            <p><%= link_to "Edit", edit_evaluation_path(evaluation.id), class:"link-button-body" %></p>
+            <p><%= link_to "Details", evaluation_path(evaluation.id), class:"link-button-body" %></p>
           <% else %>
-            <p><%= link_to "Details", evaluation_path(evaluation.id) %></p>
+            <p><%= link_to "Details", evaluation_path(evaluation.id), class:"link-button-body" %></p>
           <% end %>
         </div>
       </div>

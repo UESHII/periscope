@@ -1,12 +1,14 @@
 $logo-font: 'JetBrains Mono', monospace;
 
-header a {
-  text-decoration: none;
-  color: rgb(200, 200, 200);
-}
 a {
   text-decoration: none;
   color: black;
+}
+header {
+  a {
+    text-decoration: none;
+    color: white;
+  }
 }
 li {
   list-style: none;
@@ -27,11 +29,9 @@ li {
   margin-left: 20px;
 }
 .logo {
-  color: white;
   letter-spacing: 0.2em;
   font-size: 120%;
   font-weight: bolder;
-  text-decoration: none;
   text-align: center;
   font-family: $logo-font;
 }
@@ -44,6 +44,9 @@ li {
   li {
     white-space: nowrap;
     margin-right: 10px;
+  }
+  a {
+    font-weight: bolder;
   }
 }
 

@@ -1,5 +1,5 @@
 <div class="subtitle">
-  Evaluations waiting for review.
+  未レビューEvaluation
 </div>
   <% if @evaluations.any? %>
   <div class="contents-box">
@@ -8,7 +8,7 @@
         <% if evaluation.user.profile.team == current_user.profile.team && evaluation.user_id != current_user.id %>
           <div class="new-post">
             <div class="post-info">
-              <p>名前【<%= link_to evaluation.user.name, profile_path(evaluation.user.profile.id) %>】</p>
+              <p class="user-name"><%= link_to evaluation.user.name, profile_path(evaluation.user.profile.id) %></p>
               <p>
                 投稿日...<%= evaluation.created_at.strftime('%Y/%m/%d') %> | 営業期...<%= evaluation.fiscal_year.strftime('%Y/%m') %>
               </p>

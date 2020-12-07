@@ -12,7 +12,7 @@
       <% if user.profile && user != current_user%>
         <div class="new-post">
           <div class="post-info">
-            <p><%= link_to user.name, profile_path(user.profile.id) %></p>
+            <p class="user-name"><%= link_to user.name, profile_path(user.profile.id) %></p>
           </div>
         
           <div class="post-body">
@@ -31,7 +31,7 @@
             </ul>
           </div>
           <div class="link-button">
-            <p><%= link_to "Details", profile_path(user.profile.id) %></p>
+            <p><%= link_to "Details", profile_path(user.profile.id), class:"link-button-body" %></p>
           </div>
         </div>
       <% end %>

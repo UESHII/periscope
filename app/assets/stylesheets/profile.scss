@@ -88,6 +88,9 @@ $form-height: 40px;
 }
 
 /* Evaluation-list */
+.user-name {
+  padding: 5px;
+}
 .contents-box {
   color: rgb(40, 40, 40);
 }
@@ -97,17 +100,23 @@ $form-height: 40px;
   background-color: white;
   border: 1px solid rgb(40,40,40);
   border-radius:5px;
-
+  li {
+    margin: 5px;
+  }
 }
 .post-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   padding: 5px 0;
   border-bottom: 1px solid rgb(40, 40, 40);
 }
 .post-contents {
   li{
-  font-weight: bolder;
-  margin-top: 20px;
+    list-style: disc;
+    font-weight: bolder;
+    margin: 20px;
   }
   p{
     word-break: break-all;
@@ -118,20 +127,18 @@ $form-height: 40px;
 .link-button {
   display: flex;
   justify-content: space-evenly;
-  p{
-    width: 20%;
-    padding: 5px 0;
-    text-align: center;
-    border: none;
-    border-radius:5px;
-    background-color: rgb(40,40,40);
-    margin-top: 20px;
-  }
-  a {
-    color: white;
-  }
 }
-
+.link-button-body {
+  padding: 5px 0;
+  text-align: center;
+  border: none;
+  border-radius:5px;
+  background-color: rgb(40,40,40);
+  margin-top: 20px;
+  display: block;
+  width: 150px;
+  color: white;
+}
 
 /* _index.html.erb(profiles#index rendering) */
 .post-body {
