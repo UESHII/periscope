@@ -92,9 +92,15 @@ $form-height: 40px;
   padding: 5px;
 }
 .contents-box {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-self: stretch;
   color: rgb(40, 40, 40);
 }
 .new-post {
+  min-width: 300px;
+  height: 100%;
   margin: 10px;
   padding: 10px;
   background-color: white;

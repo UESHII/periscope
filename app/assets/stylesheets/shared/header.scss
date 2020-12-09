@@ -40,10 +40,9 @@ li {
 .top-bar-right {
   display: flex;
   align-items: center;
-  margin-right: 5px;
+  padding-right: 5px;
   li {
-    white-space: nowrap;
-    margin-right: 10px;
+    padding-right: 10px;
   }
   a {
     font-weight: bolder;
