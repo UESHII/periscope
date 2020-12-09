@@ -30,22 +30,21 @@ li {
 }
 .logo {
   letter-spacing: 0.2em;
-  font-size: 120%;
   font-weight: bolder;
-  text-align: center;
   font-family: $logo-font;
 }
 
 /* ヘッダー右部のリンクリストとアバター */
 .top-bar-right {
   display: flex;
-  align-items: center;
   padding-right: 5px;
   li {
-    padding-right: 10px;
+    white-space: nowrap;
   }
   a {
+    font-size: smaller;
     font-weight: bolder;
+    padding-right: 5px;
   }
 }
 
