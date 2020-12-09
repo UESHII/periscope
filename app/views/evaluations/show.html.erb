@@ -66,20 +66,22 @@
   <div class="subtitle">
     Review一覧
   </div>
-  <div class="new-post">
-    <div class="post-info">
-      <p>Clear</p>
+  <div class="contents-box">
+    <div class="new-post">
+      <div class="post-info">
+        <p>Clear</p>
+      </div>
+      <% @reviews.each do |review| %>
+        <li><%= review.clear %></li>
+      <% end %>
     </div>
-    <% @reviews.each do |review| %>
-      <li><%= review.clear %></li>
-    <% end %>
-  </div>
-  <div class="new-post">
-    <div class="post-info">
-      <p>Dark</p>
+    <div class="new-post">
+      <div class="post-info">
+        <p>Dark</p>
+      </div>
+      <% @reviews.each do |review| %>
+        <li><%= review.dark %></li>
+      <% end %>
     </div>
-    <% @reviews.each do |review| %>
-      <li><%= review.dark %></li>
-    <% end %>
   </div>
 <% end %>

@@ -27,7 +27,7 @@
               <li>所属チーム</li>
               <p><%= user.profile.team.name %></p>
               <li>連絡先情報</li>
-              <p><%= user.profile.contact %></p>
+              <p><%= safe_join(user.profile.contact.split("\n"),tag(:br))%></p>
             </ul>
           </div>
           <div class="link-button">

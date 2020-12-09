@@ -5,6 +5,7 @@
 </div>
 
 <% if @results != 0 %>
+<div class="contents-box">
   <% @results.each do |result| %>
     <% if result.profile %>
       <div class="new-post">
@@ -23,7 +24,7 @@
             <li>所属チーム</li>
             <p><%= result.profile.team.name %></p>
             <li>連絡先情報</li>
-            <p><%= result.profile.contact %></p>
+            <p><%= safe_join(result.profile.contact.split("\n"),tag(:br))%></p>
             <li>入社日</li>
             <p><%= result.profile.joining_date.strftime('%Y/%m/%d') %></p>
           </ul>
@@ -39,4 +40,5 @@
       </div>
     <% end %>
   <% end %>
+</div>
 <% end %>
