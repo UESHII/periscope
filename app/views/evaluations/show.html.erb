@@ -1,87 +1,86 @@
 <%= render "shared/header" %>
 
-<div class="subtitle">
-  Evaluation詳細
-</div>
-<%# Evaluation %>
-<div class="contents-box">
-  <div class="new-post">
-    <div class="post-info">
-      <p class="user-name"><%= link_to @evaluation.user.name, profile_path(@evaluation.user.profile.id) %></p>
-      <p>
-        投稿日...<%= @evaluation.created_at.strftime('%Y/%m/%d') %> | 営業期...<%= @evaluation.fiscal_year.strftime('%Y/%m') %>
-      </p>
-    </div>
-
-    <div class="post-body">
-      <div class="post-avatar-sec">
-        <% if @evaluation.user.profile.avatar.attached? %>
-          <%= image_tag @evaluation.user.profile.avatar.variant(gravity: :center, resize:"80x80^", crop:"80x80+0+0").processed, class:"post-avatar"%>
-        <% else %>
-          <%= image_tag ("noimage.png"), class:"post-avatar" %>
-        <% end %>
-      </div>
-      <ul class="post-contents">
-        <li>Goal</li>
-        <p><%= safe_join(@evaluation.goal.split("\n"),tag(:br))%></p>
-        <li>Result</li>
-        <p><%= safe_join(@evaluation.result.split("\n"),tag(:br))%></p>
-      </ul>
-    </div>
-
-    <div class="link-button">
-      <%if @evaluation.user.id == current_user.id %>
-        <p><%= link_to "編集", edit_evaluation_path(@evaluation.id), class:"link-button-body" %></p>
-        <p><%= link_to "詳細", evaluation_path(@evaluation.id), class:"link-button-body" %></p>
-      <% else %>
-        <p><%= link_to "詳細", evaluation_path(@evaluation.id), class:"link-button-body" %></p>
-      <% end %>
-    </div>
+<div class="wrapper">
+  <div class="title">
+    Evaluation詳細
   </div>
-</div>
-
-<%# Review form %>
-<% if @evaluation.user.id != current_user.id %>
-  <div class="subtitle">
-    Review投稿フォーム
-  </div>
-  <%= form_with(model: [@evaluation, @review], local: true) do |f| %>
-    <div class="review-form">
-      <div class="field">
-        <p>Clear</p>
-        <%= f.text_area :clear, class: "review-form-text", placeholder: "この人の強みは何ですか？" %>
-      </div>
-      <div class="field">
-        <p>Dark</p>
-        <%= f.text_area :dark, class: "review-form-text", placeholder: "どうすればこの人はもっと良くなると思いますか？" %>
-      </div>
-      <div class="field">
-        <%= f.submit "送信", class: "submit"%>
-      </div>
-  <% end %>
-<% end %>
-
-<%# Review list %>
-<% if @reviews %>
-  <div class="subtitle">
-    Review一覧
-  </div>
+  <%# Evaluation %>
   <div class="contents-box">
     <div class="new-post">
       <div class="post-info">
-        <p>Clear</p>
+        <p class="user-name"><%= link_to @evaluation.user.name, profile_path(@evaluation.user.profile.id) %></p>
+        <p>
+          投稿日...<%= @evaluation.created_at.strftime('%Y/%m/%d') %> | 営業期...<%= @evaluation.fiscal_year.strftime('%Y/%m') %>
+        </p>
       </div>
-      <% @reviews.each do |review| %>
-        <li><%= review.clear %></li>
-      <% end %>
-    </div>
-    <div class="new-post">
-      <div class="post-info">
-        <p>Dark</p>
+
+      <div class="post-body">
+        <div class="post-avatar-sec">
+          <% if @evaluation.user.profile.avatar.attached? %>
+            <%= image_tag @evaluation.user.profile.avatar.variant(gravity: :center, resize:"80x80^", crop:"80x80+0+0").processed, class:"post-avatar"%>
+          <% else %>
+            <%= image_tag ("noimage.png"), class:"post-avatar" %>
+          <% end %>
+        </div>
+        <ul class="post-contents">
+          <li>Goal</li>
+          <p><%= safe_join(@evaluation.goal.split("\n"),tag(:br))%></p>
+          <li>Result</li>
+          <p><%= safe_join(@evaluation.result.split("\n"),tag(:br))%></p>
+        </ul>
       </div>
-      <% @reviews.each do |review| %>
-        <li><%= review.dark %></li>
-      <% end %>
+
+      <div class="link-button">
+        <%if @evaluation.user.id == current_user.id %>
+          <p><%= link_to "編集", edit_evaluation_path(@evaluation.id), class:"link-button-body" %></p>
+        <% end %>
+      </div>
     </div>
   </div>
-<% end %>
+
+  <%# Review form %>
+  <% if @evaluation.user.id != current_user.id %>
+    <div class="title">
+      Review投稿フォーム
+    </div>
+    <%= form_with(model: [@evaluation, @review], local: true) do |f| %>
+      <div class="review-form">
+        <div class="field">
+          <p>Clear</p>
+          <%= f.text_area :clear, class: "review-form-text", placeholder: "この人の強みは何ですか？" %>
+        </div>
+        <div class="field">
+          <p>Dark</p>
+          <%= f.text_area :dark, class: "review-form-text", placeholder: "どうすればこの人はもっと良くなると思いますか？" %>
+        </div>
+        <div class="field">
+          <%= f.submit "送信", class: "submit"%>
+        </div>
+    <% end %>
+  <% end %>
+
+  <%# Review list %>
+  <% if @reviews %>
+    <div class="title">
+      Review一覧
+    </div>
+    <div class="contents-box">
+      <div class="new-post">
+        <div class="post-info">
+          <p>Clear</p>
+        </div>
+        <% @reviews.each do |review| %>
+          <li><%= review.clear %></li>
+        <% end %>
+      </div>
+      <div class="new-post">
+        <div class="post-info">
+          <p>Dark</p>
+        </div>
+        <% @reviews.each do |review| %>
+          <li><%= review.dark %></li>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

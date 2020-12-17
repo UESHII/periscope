@@ -1,20 +1,24 @@
-<div class="title">
-  パスワードリセット
-</div>
+<%= render "shared/header" %>
 
-<div class="form-box">
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-    <div class="field">
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"登録しているE-MAILを入力してください", class: "form-mail" %>
-    </div>
+<div class="wrapper">
+  <div class="title">
+    パスワードリセット
+  </div>
 
-    <div class="field">
-      <%= f.submit "パスワードリセット", class: "submit" %>
-    </div>
+  <div class="form-box">
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="field">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"登録しているE-MAILを入力してください", class: "form-mail" %>
+      </div>
 
-    <div class="another-choice">
-      <%= render "devise/shared/links" %>
-    </div>
-  <% end %>
+      <div class="field">
+        <%= f.submit "パスワードリセット", class: "submit" %>
+      </div>
+
+      <div class="another-choice">
+        <%= render "devise/shared/links" %>
+      </div>
+    <% end %>
+  </div>
 </div>

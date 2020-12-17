@@ -1,74 +1,75 @@
 <%= render "shared/header" %>
 
-
-<% if @profile.user.id == current_user.id %>
-  <div class="title">
-    <p>あなたのプロフィール</p>
-  </div>
-<% else %>
-  <div class="subtitle">
-    <p><%= @profile.user.name %>さんのプロフィール</p>
-  </div>
-<% end %>
-
-<div class="profile-details">
-  <div class="profile-avatar">
-    <% if @profile.avatar.attached? %>
-      <%= image_tag @profile.avatar.variant(gravity: :center, resize:"150x150^", crop:"150x150+0+0").processed, class:"avatar"%>
-    <% else %>
-      <%= image_tag ("noimage.png"), class:"avatar" %>
-    <% end %>
-  </div>
-
-  <ul class="profile-content">
-    <li>名前</li>
-    <p><%= @profile.user.name %></p>
-    <li>所属チーム</li>
-    <p><%= @profile.team.name %></p>
-    <li>入社日</li>
-    <p><%= @profile.joining_date %></p>
-    <li>連絡先情報</li>
-    <p><%= safe_join(@profile.contact.split("\n"),tag(:br))%></p>
-    <% if @profile.user.id == current_user.id %>
-      <%= link_to "EDIT", edit_profile_path(current_user.profile.id), method: :get, class: "profile-edit-button"%>
-    <% end %>
-  </ul>
-</div>
-
-<div class="subtitle">
-  Evaluation一覧
-</div>
-
-<div class="contents-box">
-  <% if @evaluations.any? %>
-    <% @evaluations.each do |evaluation| %>
-      <div class="new-post">
-        <div class="post-info">
-          <p>
-            投稿日...<%= evaluation.created_at.strftime('%Y/%m/%d') %> | 営業期...<%= evaluation.fiscal_year.strftime('%Y/%m') %>
-          </p>
-        </div>
-        
-        <ul class="post-contents">
-          <li>Goal</li>
-          <p><%= safe_join(evaluation.goal.split("\n"),tag(:br))%></p>
-          <li>Result</li>
-          <p><%= safe_join(evaluation.result.split("\n"),tag(:br))%></p>
-        </ul>
-        
-        <div class="link-button">
-          <%if evaluation.user.id == current_user.id %>
-            <p><%= link_to "編集", edit_evaluation_path(evaluation.id), class:"link-button-body" %></p>
-            <p><%= link_to "詳細", evaluation_path(evaluation.id), class:"link-button-body" %></p>
-          <% else %>
-            <p><%= link_to "詳細", evaluation_path(evaluation.id), class:"link-button-body" %></p>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
+<div class="wrapper">
+  <% if @profile.user.id == current_user.id %>
+    <div class="title">
+      <p>あなたのプロフィール</p>
+    </div>
   <% else %>
-    <div class="new-post">
-      <p>まだEvaluationが投稿されていないようです</p>
+    <div class="subtitle">
+      <p><%= @profile.user.name %>さんのプロフィール</p>
     </div>
   <% end %>
+
+  <div class="profile-details">
+    <div class="profile-avatar">
+      <% if @profile.avatar.attached? %>
+        <%= image_tag @profile.avatar.variant(gravity: :center, resize:"150x150^", crop:"150x150+0+0").processed, class:"avatar"%>
+      <% else %>
+        <%= image_tag ("noimage.png"), class:"avatar" %>
+      <% end %>
+    </div>
+
+    <ul class="profile-content">
+      <li>名前</li>
+      <p><%= @profile.user.name %></p>
+      <li>所属チーム</li>
+      <p><%= @profile.team.name %></p>
+      <li>入社日</li>
+      <p><%= @profile.joining_date %></p>
+      <li>連絡先情報</li>
+      <p><%= safe_join(@profile.contact.split("\n"),tag(:br))%></p>
+      <% if @profile.user.id == current_user.id %>
+        <%= link_to "EDIT", edit_profile_path(current_user.profile.id), method: :get, class: "profile-edit-button"%>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="title">
+    Evaluation一覧
+  </div>
+
+  <div class="contents-box">
+    <% if @evaluations.any? %>
+      <% @evaluations.each do |evaluation| %>
+        <div class="new-post">
+          <div class="post-info">
+            <p>
+              投稿日...<%= evaluation.created_at.strftime('%Y/%m/%d') %> | 営業期...<%= evaluation.fiscal_year.strftime('%Y/%m') %>
+            </p>
+          </div>
+          
+          <ul class="post-contents">
+            <li>Goal</li>
+            <p><%= safe_join(evaluation.goal.split("\n"),tag(:br))%></p>
+            <li>Result</li>
+            <p><%= safe_join(evaluation.result.split("\n"),tag(:br))%></p>
+          </ul>
+          
+          <div class="link-button">
+            <%if evaluation.user.id == current_user.id %>
+              <p><%= link_to "編集", edit_evaluation_path(evaluation.id), class:"link-button-body" %></p>
+              <p><%= link_to "詳細", evaluation_path(evaluation.id), class:"link-button-body" %></p>
+            <% else %>
+              <p><%= link_to "詳細", evaluation_path(evaluation.id), class:"link-button-body" %></p>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="new-post">
+        <p>まだEvaluationが投稿されていないようです</p>
+      </div>
+    <% end %>
+  </div>
 </div>

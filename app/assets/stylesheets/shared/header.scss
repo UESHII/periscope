@@ -20,7 +20,7 @@ li {
   justify-content: space-between;
   align-items: center;
   height: 8vh;
-  width: 100%;
+  width: 100vw;
   background-color: rgb(40, 40, 40);
   border-bottom: 1px solid lightgray;
 }
@@ -59,12 +59,8 @@ li {
 }
 .nav-link {
   background-color: rgb(40, 40, 40);
-  li {
-    padding: 0 1%;
-  }
   a {
     font-family: $logo-font;
-    font-weight: bolder;
   }
 }
 // PC表示時
@@ -72,6 +68,13 @@ li {
   .nav-link{
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
+    li {
+      padding: 20px 0;
+    }
+    a {
+      text-align: center;
+    }
   }
   .nav-toggle {
     display: none;
@@ -83,19 +86,24 @@ li {
 // スマートフォン表示時
 @media (max-width: 629px) {
   .nav-link {
+    height: 100vh;
+    width: 100vw;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    // visibility: hidden;
-    opacity: 1;
-    transform: translateY(-200%);
-    transition: transform 0.2s ease-out, opacity 0.2s ease-out; 
+    opacity: 0;
+    transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+    li {
+      padding: 40px;
+    }
+    a {
+      padding: 20px;
+    }
   }
   .active {
     visibility: visible;
     opacity: 1;
-    transform: translateY(0%); 
     transition: transform 0.2s ease-out, opacity 0.2s ease-out;
   }
 

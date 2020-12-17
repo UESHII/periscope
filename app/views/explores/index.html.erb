@@ -1,42 +1,44 @@
 <%= render "shared/header" %>
 
-<%= render "search_form"%>
+<div class="wrapper">
+  <%= render "search_form"%>
 
-<div class="subtitle">
-  <p>ユーザー一覧</p>
-</div>
+  <div class="title">
+    <p>ユーザー一覧</p>
+  </div>
 
-<div class="contents-box">
-  <% if @users.any? %>
-    <% @users.each do |user| %>
-      <% if user.profile && user != current_user%>
-        <div class="new-post">
-          <div class="post-info">
-            <p class="user-name"><%= link_to user.name, profile_path(user.profile.id) %></p>
-          </div>
-        
-          <div class="post-body">
-            <div class="post-avatar-sec">
-              <% if user.profile.avatar.attached? %>
-                <%= image_tag user.profile.avatar.variant(gravity: :center, resize:"150x150^", crop:"150x150+0+0").processed, class:"post-avatar"%>
-              <% else %>
-                <%= image_tag ("noimage.png"),class:"post-avatar" %>
-              <% end %>
+  <div class="contents-box">
+    <% if @users.any? %>
+      <% @users.each do |user| %>
+        <% if user.profile && user != current_user%>
+          <div class="new-post">
+            <div class="post-info">
+              <p class="user-name"><%= link_to user.name, profile_path(user.profile.id) %></p>
             </div>
-            <ul class="post-contents">
-              <li>所属チーム</li>
-              <p><%= user.profile.team.name %></p>
-              <li>連絡先情報</li>
-              <p><%= safe_join(user.profile.contact.split("\n"),tag(:br))%></p>
-            </ul>
+          
+            <div class="post-body">
+              <div class="post-avatar-sec">
+                <% if user.profile.avatar.attached? %>
+                  <%= image_tag user.profile.avatar.variant(gravity: :center, resize:"150x150^", crop:"150x150+0+0").processed, class:"post-avatar"%>
+                <% else %>
+                  <%= image_tag ("noimage.png"),class:"post-avatar" %>
+                <% end %>
+              </div>
+              <ul class="post-contents">
+                <li>所属チーム</li>
+                <p><%= user.profile.team.name %></p>
+                <li>連絡先情報</li>
+                <p><%= safe_join(user.profile.contact.split("\n"),tag(:br))%></p>
+              </ul>
+            </div>
+            <div class="link-button">
+              <p><%= link_to "詳細", profile_path(user.profile.id), class:"link-button-body" %></p>
+            </div>
           </div>
-          <div class="link-button">
-            <p><%= link_to "詳細", profile_path(user.profile.id), class:"link-button-body" %></p>
-          </div>
-        </div>
+        <% end %>
       <% end %>
+    <% else %>
+        <p>まだ他のユーザーが登録されていないようです</p>
     <% end %>
-  <% else %>
-      <p>まだ他のユーザーが登録されていないようです</p>
-  <% end %>
+  </div>
 </div>

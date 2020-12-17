@@ -1,27 +1,28 @@
-<div class="title">
-  パスワード変更
+<div class="wrapper">
+  <div class="title">
+    パスワード変更
+  </div>
+
+  <div class="form-box">
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <%= f.hidden_field :reset_password_token %>
+
+      <div class="field">
+        <%= f.password_field :password, autofocus: true, autocomplete: "new-password", placeholder: "パスワード\n英数字混合6文字以上", class: "form-password" %>
+      </div>
+
+      <div class="field">
+        <%= f.password_field :password_confirmation, placeholder: "確認用パスワード", autocomplete: "new-password", class: "form-password" %>
+      </div>
+
+      <div class="field">
+        <%= f.submit "パスワード変更", class: "submit"%>
+      </div>
+
+      <div class="another-choice">
+        <%= render "devise/shared/links" %>
+      </div>
+    <% end %>
+  </div>
 </div>
-
-<div class="form-box">
-  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
-    <%= f.hidden_field :reset_password_token %>
-
-    <div class="field">
-      <%= f.password_field :password, autofocus: true, autocomplete: "new-password", placeholder: "パスワード\n英数字混合6文字以上", class: "form-password" %>
-    </div>
-
-    <div class="field">
-      <%= f.password_field :password_confirmation, placeholder: "確認用パスワード", autocomplete: "new-password", class: "form-password" %>
-    </div>
-
-    <div class="field">
-      <%= f.submit "パスワード変更", class: "submit"%>
-    </div>
-
-    <div class="another-choice">
-      <%= render "devise/shared/links" %>
-    </div>
-  <% end %>
-</div>
-

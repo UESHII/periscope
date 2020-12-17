@@ -1,52 +1,55 @@
 <%= render "shared/header" %>
-<div class="title">
-<p>ユーザー登録情報編集</p>
-</div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  <div class="form-box">
-    <div class="field">
-      <p>名前（20文字以内）</p>
-      <%= f.text_field :name, autofocus: true, autocomplete: "name", maxlength: "20",placeholder: "例）山田太郎", class: "form-name" %>
-    </div>
+<div class="wrapper">
+  <div class="title">
+  <p>ユーザー登録情報編集</p>
+  </div>
 
-    <div class="field">
-      <p>E-MAIL</p>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "NAME", class: "form-name" %>
-    </div>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="form-box">
+      <div class="field">
+        <p>名前（20文字以内）</p>
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", maxlength: "20",placeholder: "例）山田太郎", class: "form-name" %>
+      </div>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-    <% end %>
+      <div class="field">
+        <p>E-MAIL</p>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "NAME", class: "form-name" %>
+      </div>
 
-    <div class="field">
-      <p>新しいパスワード (パスワード更新時）</p>
-      <%= f.password_field :password, autocomplete: "new-password",placeholder: "PASSWORD", class: "form-password" %>
-    </div>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
 
-    <div class="field">
-      <p>もう一度入力して下さい</p>
-      <%= f.password_field :password_confirmation, autocomplete: "new-password",placeholder: "PASSWORD CONFIRMATION", class: "form-password" %>
-    </div>
+      <div class="field">
+        <p>新しいパスワード (パスワード更新時）</p>
+        <%= f.password_field :password, autocomplete: "new-password",placeholder: "PASSWORD", class: "form-password" %>
+      </div>
 
-    <div class="field">
-      <p>現在のパスワード</p>
-      <%= f.password_field :current_password, autocomplete: "current-password",placeholder: "CURRENT PASSWORD", class: "form-password" %>
-    </div>
+      <div class="field">
+        <p>もう一度入力して下さい</p>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password",placeholder: "PASSWORD CONFIRMATION", class: "form-password" %>
+      </div>
 
-    <div class="field">
-      <div class="regi-edit-submit">
-        <%= f.submit "更新", class: "submit" %>
+      <div class="field">
+        <p>現在のパスワード</p>
+        <%= f.password_field :current_password, autocomplete: "current-password",placeholder: "CURRENT PASSWORD", class: "form-password" %>
+      </div>
+
+      <div class="field">
+        <div class="regi-edit-submit">
+          <%= f.submit "更新", class: "submit" %>
+        </div>
       </div>
     </div>
+  <% end %>
+  <div class="title">
+    <h3>アカウント登録解除</h3>
   </div>
-<% end %>
-<div class="subtitle">
-  <h3>アカウント登録解除</h3>
-</div>
-<div class="delete-field">
-  <p>アカウントの登録を解除する場合のみ押して下さい</p>
-  <p><%= button_to "登録解除", user_registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "submit" %></p>
-  <p><%= button_to "解除しない", root_path, method: :get, class: "submit" %></p>
+  <div class="delete-field">
+    <p>アカウントの登録を解除する場合のみ押して下さい</p>
+    <p><%= button_to "登録解除", user_registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "submit" %></p>
+    <p><%= button_to "解除しない", root_path, method: :get, class: "submit" %></p>
+  </div>
 </div>

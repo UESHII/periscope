@@ -1,37 +1,37 @@
 <%= render "shared/header" %>
-<div class="title">
-  <h2>新規登録</h2>
+
+<div class="wrapper">
+  <div class="title">
+    <h2>新規登録</h2>
+  </div>
+
+  <div class="form-box">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%= f.text_field :name, autofocus: true, maxlength: "20",placeholder: "名前", class: "form-name" %>
+      </div>
+
+      <div class="field">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "E-MAIL", class: "form-mail" %>
+      </div>
+
+      <div class="field">
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード\n英数字混合6文字以上", class: "form-password" %>
+      </div>
+
+      <div class="field">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "確認用パスワード", class: "form-password" %>
+      </div>
+
+      <div class="field">
+        <%= f.submit "登録", class: "submit" %>
+      </div>
+
+      <div class="another-choice">
+        <p><%= render "devise/shared/links" %></p>
+      <div>
+    <% end %>
+  </div>
 </div>
-
-<div class="form-box">
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
-
-    <div class="field">
-      <%= f.text_field :name, autofocus: true, maxlength: "20",placeholder: "名前", class: "form-name" %>
-    </div>
-
-    <div class="field">
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "E-MAIL", class: "form-mail" %>
-    </div>
-
-    <div class="field">
-      <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード\n英数字混合6文字以上", class: "form-password" %>
-    </div>
-
-    <div class="field">
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "確認用パスワード", class: "form-password" %>
-    </div>
-
-    <div class="field">
-      <%= f.submit "登録", class: "submit" %>
-    </div>
-
-    <div class="another-choice">
-      <p><%= render "devise/shared/links" %></p>
-    <div>
-  <% end %>
-</div>
-
-
-

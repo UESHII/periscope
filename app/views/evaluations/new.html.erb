@@ -1,27 +1,28 @@
 <%= render "shared/header" %>
 
-
-<div class='subtitle'>
-  Evalutation投稿フォーム
-</div>
-
-<%= form_with model: @evaluation, method: :post, local: true do |f| %>
-  <div class="form-box">
-    <div class="field">
-      <p>営業期</p>
-      <p>Q1=6月/Q2=9月/Q3=12月/Q4=3月</p>
-      <%= f.date_select :fiscal_year, {discard_day: "true", date_separator: " / ", use_month_numbers: "true"},{class: "form-date-select"}%>
-    </div>
-    <div class="field">
-    <p>翌期の目標</p>
-      <%= f.text_area :goal, class:"form-text", id:"evaluation-goal", placeholder:"1:...\n2:..." %>
-    </div>
-    <div class="field">
-      <p>結果</p>
-      <%= f.text_area :result, class:"form-text", id:"evaluation-result", placeholder:"1:...\n2:..." %>
-    </div>
-    <div class="field">
-      <p><%= f.submit "送信" ,class:"submit" %></p>
-    </div>
+<div class="wrapper">
+  <div class='title'>
+    Evalutation投稿フォーム
   </div>
-<% end %>
+
+  <%= form_with model: @evaluation, method: :post, local: true do |f| %>
+    <div class="form-box">
+      <div class="field">
+        <p>営業期</p>
+        <p>Q1=6月/Q2=9月/Q3=12月/Q4=3月</p>
+        <%= f.date_select :fiscal_year, {discard_day: "true", date_separator: " / ", use_month_numbers: "true"},{class: "form-date-select"}%>
+      </div>
+      <div class="field">
+      <p>翌期の目標</p>
+        <%= f.text_area :goal, class:"form-text", id:"evaluation-goal", placeholder:"1:...\n2:..." %>
+      </div>
+      <div class="field">
+        <p>結果</p>
+        <%= f.text_area :result, class:"form-text", id:"evaluation-result", placeholder:"1:...\n2:..." %>
+      </div>
+      <div class="field">
+        <p><%= f.submit "送信" ,class:"submit" %></p>
+      </div>
+    </div>
+  <% end %>
+</div>

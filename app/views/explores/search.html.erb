@@ -1,44 +1,46 @@
 <%= render 'shared/header' %>
 
-<div class="subtitle">
-  検索結果
-</div>
+<div class="wrapper">
+  <div class="title">
+    検索結果
+  </div>
 
-<% if @results != 0 %>
-<div class="contents-box">
-  <% @results.each do |result| %>
-    <% if result.profile %>
-      <div class="new-post">
-        <div class="post-info">
-          <p class="user-name"><%= link_to result.name, profile_path(result.profile.id) %></p>
-        </div>
-        <div class="post-body">
-          <div class="post-avatar-sec">
-            <% if result.profile.avatar.attached? %>
-              <%= image_tag result.profile.avatar.variant(gravity: :center, resize:"80x80^", crop:"80x80+0+0").processed, class:"post-avatar"%>
+  <% if @results != 0 %>
+  <div class="contents-box">
+    <% @results.each do |result| %>
+      <% if result.profile %>
+        <div class="new-post">
+          <div class="post-info">
+            <p class="user-name"><%= link_to result.name, profile_path(result.profile.id) %></p>
+          </div>
+          <div class="post-body">
+            <div class="post-avatar-sec">
+              <% if result.profile.avatar.attached? %>
+                <%= image_tag result.profile.avatar.variant(gravity: :center, resize:"80x80^", crop:"80x80+0+0").processed, class:"post-avatar"%>
+              <% else %>
+                <%= image_tag ("noimage.png"), class:"post-avatar" %>
+              <% end %>
+            </div>
+            <ul class="post-contents">
+              <li>所属チーム</li>
+              <p><%= result.profile.team.name %></p>
+              <li>連絡先情報</li>
+              <p><%= safe_join(result.profile.contact.split("\n"),tag(:br))%></p>
+              <li>入社日</li>
+              <p><%= result.profile.joining_date.strftime('%Y/%m/%d') %></p>
+            </ul>
+          </div>
+          <div class="link-button">
+            <%if result.id == current_user.id %>
+              <p><%= link_to "編集", edit_profile_path(result.profile.id), class:"link-button-body" %></p>
+              <p><%= link_to "詳細", profile_path(result.profile.id), class:"link-button-body" %></p>
             <% else %>
-              <%= image_tag ("noimage.png"), class:"post-avatar" %>
+              <p><%= link_to "詳細", profile_path(result.profile.id), class:"link-button-body" %></p>
             <% end %>
           </div>
-          <ul class="post-contents">
-            <li>所属チーム</li>
-            <p><%= result.profile.team.name %></p>
-            <li>連絡先情報</li>
-            <p><%= safe_join(result.profile.contact.split("\n"),tag(:br))%></p>
-            <li>入社日</li>
-            <p><%= result.profile.joining_date.strftime('%Y/%m/%d') %></p>
-          </ul>
         </div>
-        <div class="link-button">
-          <%if result.id == current_user.id %>
-            <p><%= link_to "編集", edit_profile_path(result.profile.id), class:"link-button-body" %></p>
-            <p><%= link_to "詳細", profile_path(result.profile.id), class:"link-button-body" %></p>
-          <% else %>
-            <p><%= link_to "詳細", profile_path(result.profile.id), class:"link-button-body" %></p>
-          <% end %>
-        </div>
-      </div>
+      <% end %>
     <% end %>
+  </div>
   <% end %>
 </div>
-<% end %>

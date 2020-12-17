@@ -1,28 +1,22 @@
-.title{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 5vh;
-  width: 100%;
-  background-color: rgb(40, 40, 40);
-  color: white;
-  font-weight: bold;
-  white-space: nowrap;
-  border-bottom: 1px solid lightgray;
-  padding: 100px 0 10px 0;
+.wrapper {
+  padding: 115px 0 0 0;
 }
-.subtitle {
+@media (max-width: 629px) {
+  .wrapper {
+    padding: 55px 0 0 0;
+  }
+}
+
+.title {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 5vh;
+  padding: 20px 0;
   width: 100%;
-  background-color: white;
   color: rgb(40, 40, 40);
   font-weight: bold;
   white-space: nowrap;
-  border-bottom: 1px solid lightgray;
-  padding: 100px 0 10px 0;
+  border: 1px solid lightgray;
 }
 .form-box {
   width: 100%;
@@ -56,7 +50,7 @@ input:focus {
   margin: 5px 0;
 }
 .regi-edit-submit{
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
 .another-choice {
