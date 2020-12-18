@@ -1,0 +1,23 @@
+<% if @reviews %>
+  <div class="title">
+    Review一覧
+  </div>
+  <div class="contents-box">
+    <div class="new-post">
+      <div class="post-info">
+        <p>Clear</p>
+      </div>
+      <% @reviews.each do |review| %>
+        <li><%= review.clear %></li>
+      <% end %>
+    </div>
+    <div class="new-post">
+      <div class="post-info">
+        <p>Dark</p>
+      </div>
+      <% @reviews.each do |review| %>
+        <li><%= review.dark %></li>
+      <% end %>
+    </div>
+  </div>
+<% end %>

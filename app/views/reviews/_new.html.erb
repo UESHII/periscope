@@ -1,0 +1,28 @@
+<% if @evaluation.user.id != current_user.id %>
+  <div class="title">
+    Review投稿フォーム
+  </div>
+  <%= form_with(model: [@evaluation, @review], local: true) do |f| %>
+  <% if flash[:error].present? %>
+    <ul class="error-flash">
+      <% flash[:error].each do |error| %>
+        <li>送信できませんでした。<%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+    <div class="review-form">
+      <div class="field">
+        <p>Clear</p>
+        <%= f.text_area :clear, class: "review-form-text", placeholder: "この人の強みは何ですか？" %>
+      </div>
+      <div class="field">
+        <p>Dark</p>
+        <%= f.text_area :dark, class: "review-form-text", placeholder: "どうすればこの人はもっと良くなると思いますか？" %>
+      </div>
+      <div class="field">
+        <%= f.submit "送信", class: "submit"%>
+      </div>
+    </div>
+  <% end %>
+<% end %>

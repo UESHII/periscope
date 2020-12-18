@@ -7,3 +7,12 @@
   box-shadow: 0 0 8px rgb(200, 200, 200);
   margin: 5px;
 }
+
+.error-flash {
+  li{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+  }
+}

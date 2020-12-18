@@ -5,7 +5,7 @@ class Review < ApplicationRecord
   with_options presence: true do
     validates :user
     validates :evaluation
-    validates :clear
-    validates :dark
   end
+    validates :clear, presence: { message: "は入力必須です。" }
+    validates :dark, presence: { message: "は入力必須です。" }
 end

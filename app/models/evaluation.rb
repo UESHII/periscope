@@ -3,9 +3,7 @@ class Evaluation < ApplicationRecord
   has_many :progresses
   has_many :reviews
 
-  with_options presence: true do
-    validates :goal
-    validates :fiscal_year
-    validates :user
-  end
+  validates :goal, presence: { message: "は入力必須です。" }
+  validates :fiscal_year, presence: { message: "は入力必須です。" }
+  validates :user, presence: true
 end

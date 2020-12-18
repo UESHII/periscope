@@ -9,7 +9,6 @@ class ProfilesController < ApplicationController
 
   def new
     @profile = Profile.new
-    @teams = Team.all
   end
 
   def create
@@ -22,7 +21,6 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    @teams = Team.all
   end
 
   def show
@@ -33,7 +31,7 @@ class ProfilesController < ApplicationController
     if @profile.update(profile_params)
       redirect_to action: :index
     else
-      render :edit
+      render action: :edit
     end
   end
 

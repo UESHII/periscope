@@ -6,6 +6,9 @@
   </div>
 
   <%= form_with model: @profile, method: :patch, local: true do |f| %>
+
+  <%= render 'shared/error_messages', model: f.object %>
+  
     <div class='form-box'>
       <div class="field">
         <p>プロフィール画像</p>
@@ -21,7 +24,7 @@
       </div>
       <div class="field">
         <p>所属チーム</p>
-        <%= f.collection_select(:team_id, @teams, :id, :name, {include_blank: "---"}, {class:"form-team"}) %>
+        <%= f.collection_select(:team_id, Team.all, :id, :name, {include_blank: "---"}, {class:"form-team"}) %>
       </div>
       <div class="field">
         <p>入社日</p>

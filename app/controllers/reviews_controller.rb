@@ -1,8 +1,12 @@
 class ReviewsController < ApplicationController
-  
+
   def create 
     @review = Review.create(review_params)
-    redirect_to "/evaluations/#{@review.evaluation.id}"
+    if @review.save
+      redirect_to "/evaluations/#{@review.evaluation.id}"
+    else
+      redirect_to "/evaluations/#{@review.evaluation.id}", flash: { error: @review.errors.full_messages }
+    end
   end
 
   private

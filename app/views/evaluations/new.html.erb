@@ -6,6 +6,9 @@
   </div>
 
   <%= form_with model: @evaluation, method: :post, local: true do |f| %>
+  
+  <%= render 'shared/error_messages', model: f.object %>
+    
     <div class="form-box">
       <div class="field">
         <p>営業期</p>
