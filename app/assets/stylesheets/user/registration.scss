@@ -1,0 +1,120 @@
+.wrapper {
+  padding: 115px 0 0 0;
+}
+@media (max-width: 629px) {
+  .wrapper {
+    padding: 55px 0 0 0;
+  }
+}
+@-webkit-keyframes BackgroundAnime {
+  0%{background-position:50% 0%}
+  50%{background-position:50% 100%}
+  100%{background-position:50% 0%}
+}
+@-moz-keyframes BackgroundAnime {
+  0%{background-position:50% 0%}
+  50%{background-position:50% 100%}
+  100%{background-position:50% 0%}
+}
+@keyframes BackgroundAnime {
+  0%{background-position:50% 0%}
+  50%{background-position:50% 100%}
+  100%{background-position:50% 0%}
+}
+.toppage-wrapper {
+  height: 100vh;
+  width: 100vw;
+  padding: 115px 0 0 0;
+  color: white;
+  background: linear-gradient(180deg, #cccccc, #000000);
+  background-size: 400% 400%;
+  -webkit-animation: BackgroundAnime 30s ease infinite;
+  -moz-animation: BackgroundAnime 30s ease infinite;
+  animation: BackgroundAnime 30s ease infinite;
+  a{
+    color:white;
+  }
+}
+.toppage-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+  width: 100%;
+  color: white;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+  width: 100%;
+  color: rgb(40, 40, 40);
+  font-weight: bold;
+  white-space: nowrap;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+}
+.form-box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+input.regi-form {
+  height: 40px;
+  width: 300px;
+  border:none;
+  border-radius:5px;
+  box-shadow: none;
+  padding: 3px;
+  background-color: lightgray;
+  font-size: 15px;
+}
+input:focus {
+  outline: none;
+}
+
+.submit {
+  height: 40px;
+  width: 306px;
+  border:none;
+  border-radius:5px;
+  box-shadow: 0 0 10px rgb(200, 200, 200);
+  background-color: rgb(40, 40, 40);
+  color: white;
+  margin: 5px 0;
+}
+.regi-edit-submit{
+  margin-bottom: 30px;
+}
+
+.another-choice {
+  text-align: center;
+  padding: 3px;
+  height: 50px;
+}
+
+.field {
+  margin: 5px;
+  text-align: center;
+}
+
+
+.field p{
+  margin: 5px;
+}
+
+/* Edit registration */
+.delete-field {
+  margin-top: 20px;
+  text-align: center;
+}
+.delete-field p {
+  margin: 10px 0;
+}
+
