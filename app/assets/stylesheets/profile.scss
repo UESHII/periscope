@@ -31,21 +31,28 @@ $form-height: 40px;
   height: $form-height;
   width: $form-width;
   border-radius: 5px;
-  border: 1px solid darkgray;
+  // border: 1px solid darkgray;
+  border: none;
   background-color: white;
   box-shadow: 0 0 8px rgb(200, 200, 200);
+  margin: 5px;
 }
 .form-date-select {
   height: $form-height;
   width: $form-width / 2 - 5px;
   border-radius: 5px;
-  border: 1px solid darkgray;
+  // border: 1px solid darkgray;
+  border: none;
   background-color: white;
   box-shadow: 0 0 8px rgb(200, 200, 200);
+  margin: 5px;
 }
-.profile-contact {
+.form-contact {
   height: $form-height + 40px;
+  width: $form-width;
+  border: none;
   box-shadow: 0 0 8px rgb(200, 200, 200);
+  margin: 5px;
 }
 
 
@@ -163,10 +170,3 @@ $form-height: 40px;
   width: 80px; 
 }
 /* search-form.html.erb(explore#index rendering */
-
-
-
-
-
-
-// BUSY
