@@ -51,12 +51,14 @@
   align-items: center;
   justify-content: center;
   padding: 20px 0;
+  margin: 8px 0;
   width: 100%;
   color: rgb(40, 40, 40);
   font-weight: bold;
   white-space: nowrap;
   border-top: 1px solid lightgray;
   border-bottom: 1px solid lightgray;
+  box-shadow: 0 0 8px rgb(200, 200, 200);
 }
 .form-box {
   width: 100%;

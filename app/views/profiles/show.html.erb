@@ -1,15 +1,15 @@
 <%= render "shared/header" %>
 
 <div class="wrapper">
-  <% if @profile.user.id == current_user.id %>
-    <div class="title">
-      <p>あなたのプロフィール</p>
-    </div>
-  <% else %>
-    <div class="subtitle">
-      <p><%= @profile.user.name %>さんのプロフィール</p>
-    </div>
-  <% end %>
+    <% if @profile.user.id == current_user.id %>
+      <div class="title">
+        <p>あなたのプロフィール</p>
+      </div>
+    <% else %>
+      <div class="title">
+        <p><%= @profile.user.name %>さんのプロフィール</p>
+      </div>
+    <% end %>
 
   <div class="profile-details">
     <div class="profile-avatar">
