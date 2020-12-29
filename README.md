@@ -170,19 +170,19 @@
 
 #### ・ダウンロードするディレクトリへ移動
 
-```
+```shell
 例）$ cd /Users/user-name/
 ```
 
 #### ・リポジトリをクローン
 
-```
+```shell
 $ git clone https://github.com/UESHII/periscope.git
 ```
 
 #### ・Homebrewを設定する
 
-```
+```shell
 # https://brew.sh/index_jaから下記のようなインストール用のコマンドをコピーしてペーストする
 例）$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
@@ -210,7 +210,7 @@ $ cd /periscope
 
 ##### 【以下アプリのあるディレクトリで実行】
 
-```
+```shell
 # Rubyのバージョン指定（local = 指定ディレクトリのみに指定バージョンを適用する ｜ global = PC全体で使用するバージョンを一括適用する）
 $ rbenv local 2.6.5
 
@@ -224,7 +224,7 @@ $ ruby -v
 
 #### ・MySQLを設定する
 
-```
+```shell
 # MySQLをインストールする
 $ brew install mysql@5.6
 
@@ -256,7 +256,7 @@ $ mysql.server status
 
 #### ・Railsを準備する
 
-```
+```shell
 # bundlerのインストール
 $ gem install bundler
 
@@ -279,7 +279,7 @@ $ rails -v
 
 #### ・アプリ実行のための準備
 
-```
+```shell
 # 必要なgemをインストールする
 $ bundle install
 
@@ -292,7 +292,7 @@ $ rails db:migrate
 
 #### ・アプリの実行
 
-```
+```shell
 # サーバーの起動
 $ rails s
 
