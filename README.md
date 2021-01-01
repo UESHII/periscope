@@ -108,21 +108,22 @@
 #### Association
 * has_one :profile
 * has_many :evaluations
-* has_many :progresses
 * has_many :reviews
 
 ---
 
 ### profile Table
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| contact | string     | null: false                    |
-| user    | references | null: false, foreign_key: true |
-| team_id | integer    | null: false                    |
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| contact      | string     | null: false                    |
+| user         | references | null: false, foreign_key: true |
+| team_id      | integer    | null: false                    |
+| joining_date | date       | null: false                    |
 
 #### Association
 * belongs_to :user
 * belongs_to_active_hash :team
+* has_one_attached :avatar
 
 ---
 
@@ -131,12 +132,11 @@
 | -------------- | ---------- | ------------------------------ |
 | goal           | text       | null: false                    |
 | result         | text       |                                |
-| fiscal_year_id | integer    | null: false                    |
+| fiscal_year    | date       | null: false                    |
 | user           | references | null: false, foreign_key: true |
 
 #### Association
 * belongs_to :user
-* has_many :progresses
 * has_many :reviews
 
 ---
@@ -152,19 +152,6 @@
 #### Association
 * belongs_to :evaluation
 * belongs_to :user
-
----
-
-### progress Table
-| Column      | Type       | Options                        |
-| ----------- | ---------- | ------------------------------ |
-| description | text       | null: false                    |
-| user        | references | null: false, foreign_key: true |
-| evaluation  | references | null: false, foreign_key: true |
-
-#### Association
-* belongs_to :progress
-* belongs_to :evaluation
 
 ---
 

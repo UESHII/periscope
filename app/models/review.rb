@@ -6,6 +6,6 @@ class Review < ApplicationRecord
     validates :user
     validates :evaluation
   end
-    validates :clear, presence: { message: "は入力必須です。" }
-    validates :dark, presence: { message: "は入力必須です。" }
+  validates :clear, presence: { message: "は入力必須です。" }
+  validates :dark, presence: { message: "は入力必須です。" }
 end
