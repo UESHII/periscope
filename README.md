@@ -98,7 +98,7 @@
 ---
 
 ## データベース設計
-### users Table
+### user Table
 | Column   | Type   | Options     |
 | -------- | ------ | ----------- |
 | name     | string | null: false |
