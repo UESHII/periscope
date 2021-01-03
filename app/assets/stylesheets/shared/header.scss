@@ -96,9 +96,12 @@ li {
     height: 100vh;
     width: 100vw;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     flex-direction: column;
     align-items: center;
+    li {
+      padding: 45px;
+    }
     a {
       padding: 20px;
     }
