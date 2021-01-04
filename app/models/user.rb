@@ -8,11 +8,11 @@ class User < ApplicationRecord
   has_many :evaluations
   has_many :reviews
   
-  NAME_REGEX = /\A[a-zA-Zぁ-んァ-ン一-龥\s]+\z/
+  NAME_REGEX = /\A[a-zA-Zぁ-んァ-ン一-龥\d\s]+\z/
   
   validate :password_complexity
   with_options presence: true do
-    validates :name, format: { with: NAME_REGEX, message: "is invalid." }
+    validates :name, format: { with: NAME_REGEX, message: "は20文字以内で入力して下さい" }
   end
 
   def password_complexity

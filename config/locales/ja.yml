@@ -1,0 +1,23 @@
+ja:
+  activerecord:
+    attributes:
+        user:
+          id: ID
+          # view側： User.human_attribute_name :name => "名前" /　t("activerecord.attributes.user.name")と同じ
+          name: 名前
+          email: メールアドレス
+          file: プロフィール画像
+          password: パスワード
+          current_password: 現在のパスワード
+        profile:
+          team: 所属チーム
+          contact: 連絡先情報
+          joining_date: 入社日
+        evaluation: 
+          goal: 翌期の目標
+          fiscal_year: 営業期
+
+  # 全てのmodelで共通して使用するattributesを定義
+  attributes:
+    created_at: 作成日
+    updated_at: 更新日
