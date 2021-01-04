@@ -6,7 +6,7 @@
 <% if user_signed_in? %>
     <ul class="top-bar-right">
       <li><%= link_to current_user.name, profile_path(current_user.profile.id), class: "top-link" %></li>
-      <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "top-link" %></li>
+      <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "top-link-logout" %></li>
       <li>
         <button class="nav-toggle, hamburger" aria-expanded="false" type="button" id="hamburger">
           <span class="hamburger_line">

@@ -44,13 +44,16 @@ li {
   align-items: center;
   padding-right: 5px;
   li {
-    white-space: nowrap;
+    text-align: center;
     padding-right: 5px;
   }
   a {
     font-size: smaller;
     font-weight: bolder;
   }
+}
+.top-link-logout {
+  white-space: nowrap;
 }
 
 /* ヘッダー下部のリンクリスト */
