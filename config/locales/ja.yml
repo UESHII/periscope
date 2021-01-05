@@ -9,6 +9,7 @@ ja:
           file: プロフィール画像
           password: パスワード
           current_password: 現在のパスワード
+          password_confirmation: 確認用パスワード
         profile:
           team: 所属チーム
           contact: 連絡先情報
