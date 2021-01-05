@@ -3,5 +3,6 @@ FactoryBot.define do
     fiscal_year           {"2021-06-01"}
     goal                  {"example text"}
     result                {""}
+    association           :user
   end
 end
