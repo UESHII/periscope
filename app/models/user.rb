@@ -17,7 +17,7 @@ class User < ApplicationRecord
 
   def password_complexity
     return if password.blank? || password =~ /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
-    errors.add :password, 'Input 6 characters at least, use both of letter and number.'
+    errors.add :password, "は半角英数字混合の6文字以上を入力して下さい"
   end
 
   # instead of deleting, indicate the user requested a delete & timestamp it
