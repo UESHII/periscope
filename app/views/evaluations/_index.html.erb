@@ -23,6 +23,7 @@
                 <%= image_tag ("noimage.png"), class:"post-avatar" %>
               <% end %>
             </div>
+            
             <ul class="post-contents">
               <li>Goal</li>
               <p><%= safe_join(evaluation.goal.split("\n"),tag(:br))%></p>
@@ -41,10 +42,15 @@
           </div>
         </div>
       <% end %>
+    <% else %>
+      <div class="new-post">
+        <p>まだEvaluationが投稿されていないようです</p>
+      </div>
     <% end %>
   <% end %>
-
-  <% else %>
-    まだEvaluationが投稿されていないようです
-  <% end %>
+<% else %>
+  <div class="new-post">
+    <p>まだEvaluationが投稿されていないようです</p>
+  </div>
+<% end %>
 </div>
