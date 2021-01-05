@@ -3,9 +3,6 @@ class EvaluationsController < ApplicationController
   before_action :set_evaluation, only: [:edit, :update, :show, :destroy]
   before_action :edit_restriction, only: [:edit, :update]
 
-  def index
-  end
-
   def new
     @evaluation = Evaluation.new
   end
