@@ -3,6 +3,6 @@ FactoryBot.define do
     contact               {"000-0000-0000"}
     joining_date          {"2020-12-01"}
     team_id               {"1"}
-    association :user
+    association           :user
   end
 end
