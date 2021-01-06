@@ -8,7 +8,7 @@
 | アプリケーション名 | PERISCOPE |
 | アプリケーション概要 | 社員同士で評価し合うことができる。<br>全社員の所属チーム、入社日、連絡先を検索することができる。 |
 | サンプルページURL | http://54.168.201.215/ |
-| テスト用アカウント | Basic認証 ID：admin<br>Basic認証パスワード：2222<br>テスト用ユーザー名：Test I<br>テスト用ユーザーE-mailアドレス：test1@example.com<br>テスト用ユーザーパスワード：test1111 |
+| テスト用アカウント | Basic認証 ID：admin<br>Basic認証パスワード：2222<br>テスト用ユーザー名：Test 1<br>テスト用ユーザーE-mailアドレス：test1@example.com<br>テスト用ユーザーパスワード：test1111 |
 
 ---
 
