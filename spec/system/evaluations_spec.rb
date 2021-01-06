@@ -24,10 +24,9 @@ RSpec.describe "Evaluation", type: :system do
       # 遷移先パスを確認
       expect(current_path).to eq '/evaluations/new'
       # 各項目を入力する
-      find("option[value='2020']").select_option
-      # find("option[value='12").select_option
+      select(value = "2020", from: "evaluation[fiscal_year(1i)]") 
       select(value = "12", from: "evaluation[fiscal_year(2i)]") 
-      fill_in "evaluation[goal]", with: "example"
+      fill_in "evaluation[goal]", with: @evaluation.goal
       # 送信するとプロフィールのデータカウントが1増えることを確認
       expect{
         find('input[class="submit"]').click
@@ -53,6 +52,8 @@ RSpec.describe "Evaluation", type: :system do
       click_on 'NEW POST'
       # 遷移先パスを確認
       expect(current_path).to eq '/evaluations/new'
+      # 各項目を未入力
+      fill_in "evaluation[goal]", with: ""
       # 未入力で送信してもプロフィールのデータカウントが増えないことを確認
       expect{
         find('input[class="submit"]').click
