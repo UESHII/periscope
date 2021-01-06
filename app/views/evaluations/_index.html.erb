@@ -3,54 +3,48 @@
 </div>
 
 <% if @evaluations.any? %>
-<div class="contents-box">
-  <% @evaluations.each do |evaluation| %>
-    <% unless evaluation.reviews.find_by(user_id: current_user.id) %>
-      <% if evaluation.user.profile.team == current_user.profile.team && evaluation.user_id != current_user.id %>
-        <div class="new-post">
-          <div class="post-info">
-            <p class="user-name"><%= link_to evaluation.user.name, profile_path(evaluation.user.profile.id) %></p>
-            <p>
-              投稿日...<%= evaluation.created_at.strftime('%Y/%m/%d') %> | 営業期...<%= evaluation.fiscal_year.strftime('%Y/%m') %>
-            </p>
-          </div>
+  <div class="contents-box">
 
-          <div class="post-body">
-            <div class="post-avatar-sec">
-              <% if evaluation.user.profile.avatar.attached? %>
-                <%= image_tag evaluation.user.profile.avatar.variant(gravity: :center, resize:"80x80^", crop:"80x80+0+0").processed, class:"post-avatar"%>
+    <% @evaluations.each do |evaluation| %>
+      <% unless evaluation.reviews.find_by(user_id: current_user.id) %>
+        <% if evaluation.user.profile.team == current_user.profile.team && evaluation.user_id != current_user.id %>
+          <div class="new-post">
+            <div class="post-info">
+              <p class="user-name"><%= link_to evaluation.user.name, profile_path(evaluation.user.profile.id) %></p>
+              <p>
+                投稿日...<%= evaluation.created_at.strftime('%Y/%m/%d') %> | 営業期...<%= evaluation.fiscal_year.strftime('%Y/%m') %>
+              </p>
+            </div>
+
+            <div class="post-body">
+              <div class="post-avatar-sec">
+                <% if evaluation.user.profile.avatar.attached? %>
+                  <%= image_tag evaluation.user.profile.avatar.variant(gravity: :center, resize:"80x80^", crop:"80x80+0+0").processed, class:"post-avatar"%>
+                <% else %>
+                  <%= image_tag ("noimage.png"), class:"post-avatar" %>
+                <% end %>
+              </div>
+              
+              <ul class="post-contents">
+                <li>Goal</li>
+                <p><%= safe_join(evaluation.goal.split("\n"),tag(:br))%></p>
+                <li>Result</li>
+                <p><%= safe_join(evaluation.result.split("\n"),tag(:br))%></p>
+              </ul>
+            </div>
+
+            <div class="link-button">
+              <%if evaluation.user.id == current_user.id %>
+                <p><%= link_to "編集", edit_evaluation_path(evaluation.id), class:"link-button-body" %></p>
+                <p><%= link_to "詳細", evaluation_path(evaluation.id), class:"link-button-body" %></p>
               <% else %>
-                <%= image_tag ("noimage.png"), class:"post-avatar" %>
+                <p><%= link_to "詳細", evaluation_path(evaluation.id), class:"link-button-body" %></p>
               <% end %>
             </div>
-            
-            <ul class="post-contents">
-              <li>Goal</li>
-              <p><%= safe_join(evaluation.goal.split("\n"),tag(:br))%></p>
-              <li>Result</li>
-              <p><%= safe_join(evaluation.result.split("\n"),tag(:br))%></p>
-            </ul>
           </div>
-
-          <div class="link-button">
-            <%if evaluation.user.id == current_user.id %>
-              <p><%= link_to "編集", edit_evaluation_path(evaluation.id), class:"link-button-body" %></p>
-              <p><%= link_to "詳細", evaluation_path(evaluation.id), class:"link-button-body" %></p>
-            <% else %>
-              <p><%= link_to "詳細", evaluation_path(evaluation.id), class:"link-button-body" %></p>
-            <% end %>
-          </div>
-        </div>
+        <% end %>
       <% end %>
-    <% else %>
-      <div class="new-post">
-        <p>まだEvaluationが投稿されていないようです</p>
-      </div>
     <% end %>
+
   <% end %>
-<% else %>
-  <div class="new-post">
-    <p>まだEvaluationが投稿されていないようです</p>
-  </div>
-<% end %>
 </div>
