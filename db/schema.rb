@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2020_12_05_052603) do
     t.date "joining_date", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["team_id"], name: "index_profiles_on_team_id"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 

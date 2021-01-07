@@ -4,7 +4,7 @@ class ProfilesController < ApplicationController
   before_action :edit_restriction, only: [:edit, :update]
 
   def index
-    @evaluations = Evaluation.includes(:user).order("created_at DESC")
+    @evaluations = Evaluation.all.includes(:user).order("created_at DESC")
   end
 
   def new
